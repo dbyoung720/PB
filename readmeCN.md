@@ -34,7 +34,7 @@ PB(PBox)
 * 示例(基于对话框)：modules\7-zip；
 * 示例(基于对话框)：modules\Notepad2；
 * 示例(基于   MFC)：modules\mpc-be；
-* VC2017 / VC2019 函数声明：
+* VC2022 函数声明：
 ```
 enum TLangStyle {lsDelphiDll, lsVCDLGDll, lsVCMFCDll, lsQTDll, lsEXE};
 extern "C" __declspec(dllexport) void db_ShowDllForm_Plugins(TLangStyle* lsFileType, char** strParentName, char** strSubModuleName, char** strClassName, char** strWindowName, const bool show = false)
@@ -62,7 +62,7 @@ extern "C" __declspec(dllexport) void db_ShowDllForm_Plugins(TLangStyle* lsFileT
  strParentModuleName ：父模块名称；
  strSubModuleName    ：子模块名称；
 ```
-* VC2017/QT ：
+* VC2022/QT ：
 ```
 extern "C" __declspec(dllexport) void db_ShowDllForm_Plugins(TLangStyle* lsFileType, char** strParentName, char** strSubModuleName, char** strClassName, char** strWindowName, const bool show = false)
 

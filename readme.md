@@ -34,7 +34,7 @@ PB(PBox)
 * Example(base on Dialog)£ºmodules\7-zip
 * Example(base on Dialog)£ºmodules\Notepad2;
 * Example(base on    MFC)£ºmodules\mpc-be;
-* VC2017 /VC2019 function declaration:  
+* VC2022 function declaration:  
 ```
 enum TLangStyle {lsDelphiDll, lsVCDLGDll, lsVCMFCDll, lsQTDll, lsEXE};
 extern "C" __declspec(dllexport) void db_ShowDllForm_Plugins(TLangStyle* lsFileType, char** strParentName, char** strSubModuleName, char** strClassName, char** strWindowName, const bool show = false)
@@ -63,7 +63,7 @@ extern "C" __declspec(dllexport) void db_ShowDllForm_Plugins(TLangStyle* lsFileT
  strParentModuleName £ºParent module name;  
  strSubModuleName    £ºSub module name;  
 ```
-* VC2017/QT £º
+* VC2022/QT £º
 ```
 extern "C" __declspec(dllexport) void db_ShowDllForm_Plugins(TLangStyle* lsFileType, char** strParentName, char** strSubModuleName, char** strClassName, char** strWindowName, const bool show = false)
 
