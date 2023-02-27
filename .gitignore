@@ -1,0 +1,17 @@
+*.dcu
+*.identcache
+*.local
+*.user
+*.tvsconfig
+*.rsm
+*.pdb
+vcl/Raize
+__history
+/src/Win32
+/src/Win64
+bin/Win32/plugins/lng/obj
+bin/Win64/plugins/lng/obj
+/bin/Win32/plugins/EXE/cports/cports.cfg
+/bin/Win64/plugins/EXE/cports/cports.cfg
+/bin/Win32/plugins/EXE/cports/IPNetInfo.cfg
+/bin/Win64/plugins/EXE/cports/IPNetInfo.cfg

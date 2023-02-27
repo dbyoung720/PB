@@ -1,0 +1,6 @@
+[submodule "vcl/cnvcl"]
+	path = vcl/cnvcl
+	url = https://github.com/cnpack/cnvcl.git
+[submodule "vcl/DOSCommand"]
+	path = vcl/DOSCommand
+	url = https://github.com/TurboPack/DOSCommand.git

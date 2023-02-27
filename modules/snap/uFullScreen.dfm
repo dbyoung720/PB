@@ -1,0 +1,25 @@
+object frmFullScreen: TfrmFullScreen
+  Left = 0
+  Top = 0
+  Cursor = crCross
+  AlphaBlend = True
+  AlphaBlendValue = 150
+  BorderStyle = bsNone
+  Caption = 'frmFullScreen'
+  ClientHeight = 260
+  ClientWidth = 425
+  Color = clBtnFace
+  DoubleBuffered = True
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  KeyPreview = True
+  OnClose = FormClose
+  OnKeyPress = FormKeyPress
+  OnMouseDown = FormMouseDown
+  OnMouseMove = FormMouseMove
+  OnMouseUp = FormMouseUp
+  TextHeight = 13
+end
