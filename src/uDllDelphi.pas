@@ -7,7 +7,7 @@ unit uDllDelphi;
 
 interface
 
-uses Winapi.Windows, Winapi.Messages, System.SysUtils, Vcl.Controls, Vcl.Forms, Vcl.Graphics, uBaseForm, Vcl.ComCtrls;
+uses Winapi.Windows, Winapi.Messages, System.SysUtils, Vcl.Controls, Vcl.Forms, Vcl.Graphics, Vcl.ComCtrls, uBaseForm;
 
 { ´´½¨ Delphi Dll Form }
 procedure ShowDelphiDllForm(const strFileName: string; TabDll: TTabSheet);
