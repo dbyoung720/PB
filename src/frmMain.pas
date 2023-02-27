@@ -46,8 +46,6 @@ type
     procedure OnMenuItemClick(Sender: TObject);
     { 加载所有的 DLL 和 EXE 到列表 }
     procedure LoadAllPlugins(var lstDll: THashedStringList);
-    { 排序模块 }
-    procedure SortModuleList(var lstDll: THashedStringList);
     { 创建模块功能菜单 }
     procedure CreateMenu(const listDll: THashedStringList);
     { 创建 UI }
@@ -231,26 +229,6 @@ begin
     FreeMenu;
     FlistModuleDll.Clear;
     ReCreate;
-  end;
-end;
-
-{ 排序模块 }
-procedure TfrmPBox.SortModuleList(var lstDll: THashedStringList);
-var
-  strPModuleOrder: String;
-  iniModule      : TIniFile;
-begin
-  iniModule := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
-  try
-    { 排序父模块 }
-    strPModuleOrder := iniModule.ReadString(c_strIniModuleSection, 'Order', '');
-    if Trim(strPModuleOrder) <> '' then
-      SortModuleParent(lstDll, strPModuleOrder);
-
-    { 排序子模块 }
-    SortSubModule(lstDll, strPModuleOrder, iniModule);
-  finally
-    iniModule.Free;
   end;
 end;
 

@@ -114,12 +114,6 @@ procedure OnlyRunOneInstance;
 { 去除标题栏 }
 procedure RemoveCaption(hWnd: THandle);
 
-{ 排序父模块 }
-procedure SortModuleParent(var lstModuleList: THashedStringList; const strPModuleList: String);
-
-{ 排序子模块 }
-procedure SortSubModule(var lstModuleList: THashedStringList; const strPModuleOrder: String; const iniModule: TIniFile);
-
 { 搜索加载所有 DLL 模块 }
 procedure LoadAllDLLPlugins(var lstDll: THashedStringList; var ilMainMenu: TImageList);
 
@@ -164,6 +158,9 @@ function CheckLoadSpeed: Boolean;
 
 { 加速加载时，每个菜单项的图标 }
 procedure LoadAllMenuIconSpeed(const ilMainMenu: TImageList);
+
+{ 排序模块 }
+procedure SortModuleList(var lstDll: THashedStringList);
 
 implementation
 
@@ -1261,6 +1258,27 @@ begin
     end;
   end;
 end;
+
+{ 排序模块 }
+procedure SortModuleList(var lstDll: THashedStringList);
+var
+  strPModuleOrder: String;
+  iniModule      : TIniFile;
+begin
+  iniModule := TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini'));
+  try
+    { 排序父模块 }
+    strPModuleOrder := iniModule.ReadString(c_strIniModuleSection, 'Order', '');
+    if Trim(strPModuleOrder) <> '' then
+      SortModuleParent(lstDll, strPModuleOrder);
+
+    { 排序子模块 }
+    SortSubModule(lstDll, strPModuleOrder, iniModule);
+  finally
+    iniModule.Free;
+  end;
+end;
+
 
 { TBaseForm }
 
