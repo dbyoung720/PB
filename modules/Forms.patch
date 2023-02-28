@@ -1,0 +1,13 @@
+diff --git "a/F:\\Green\\Language\\RS113\\source\\vcl\\Vcl.Forms.pas" "b/E:\\PBox\\modules\\Vcl.Forms.pas"
+index c893889..e7bd849 100644
+--- "a/F:\\Green\\Language\\RS113\\source\\vcl\\Vcl.Forms.pas"
++++ "b/E:\\PBox\\modules\\Vcl.Forms.pas"
+@@ -12442,7 +12442,7 @@ var
+ begin
+   FHintActive := False;
+   HintInfo.ReshowTimeout := 0;
+-  if FShowHint and (FHintControl <> nil) and ForegroundTaskCheck(EnumAllWindowsOnActivateHint) and
++  if FShowHint and (FHintControl <> nil) and //ForegroundTaskCheck(EnumAllWindowsOnActivateHint) and
+     (FHintControl = GetHintControl(FindDragTarget(CursorPos, True))) and
+     (FHintControl.CustomHint = nil) then
+   begin
