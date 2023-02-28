@@ -1,4 +1,9 @@
 unit uUICreate;
+{
+  Func : UI Create / Free Manager
+  Auth : dbyoung@sina.com
+  Time : 2023-02-20
+}
 
 interface
 
