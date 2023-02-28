@@ -15,3 +15,4 @@ bin/Win64/plugins/lng/obj
 /bin/Win64/plugins/EXE/cports/cports.cfg
 /bin/Win32/plugins/EXE/cports/IPNetInfo.cfg
 /bin/Win64/plugins/EXE/cports/IPNetInfo.cfg
+/modules/Vcl.Forms.pas

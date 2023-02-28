@@ -5,6 +5,7 @@ library txtOCR;
 {$IFEND}
 
 uses
+  Vcl.Forms in '..\Vcl.Forms.pas',
   System.SysUtils,
   System.Classes,
   uMainForm in 'uMainForm.pas' {frmtxtOCR},
