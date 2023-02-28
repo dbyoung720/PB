@@ -1,3 +1,4 @@
+plugins\EXE\UninstallView\UninstallView.exe=系统管理;UninstallView;UninstallView;UninstallView;22;4
 regedit.exe=系统管理;注册表编辑器;RegEdit_RegEdit;注册表编辑器;16;4
 cmd.exe=系统管理;DOS命令行;ConsoleWindowClass;管理员: C:\Windows\System32\cmd.exe;14;4
 sp.dll=系统管理;系统搜索路径;;;11;0
