@@ -10,7 +10,7 @@ PB(PBox)
     Support Delphi DLL Form¡¢VC DLL Window(Dialog/MFC)¡¢QT DLL Window; 
 
 ## II. Development platform
-    Delphi11.2¡¢WIN10X64;
+    Delphi11.3¡¢WIN10X64;
     WIN10X64 test pass;Support X86¡¢X64;
     Email£ºdbyoung@sina.com;
     QQgrp£º101611228;
