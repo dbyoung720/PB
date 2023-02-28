@@ -1,0 +1,13 @@
+diff --git "a/F:\\Green\\Language\\RS113\\source\\vcl\\Vcl.Graphics.pas" "b/E:\\PBox\\modules\\Vcl.Graphics.pas"
+index 5f70071..b3228f5 100644
+--- "a/F:\\Green\\Language\\RS113\\source\\vcl\\Vcl.Graphics.pas"
++++ "b/E:\\PBox\\modules\\Vcl.Graphics.pas"
+@@ -7982,7 +7982,7 @@ begin
+             end;
+           end
+           else
+-            PatBlt(NewImageDC, 0, 0, bmWidth, bmHeight, WHITENESS);
++           // PatBlt(NewImageDC, 0, 0, bmWidth, bmHeight, WHITENESS);
+ 
+           if Handle <> 0 then
+           begin
