@@ -5,6 +5,7 @@
 *.tvsconfig
 *.rsm
 *.pdb
+uniDAC
 vcl/Raize
 __history
 /src/Win32
