@@ -24,3 +24,7 @@ bin/Win64/plugins/lng/obj
 /bin/Win32/plugins/EXE/HeidiSQL/tabs.ini
 /bin/Win64/plugins/EXE/HeidiSQL/portable_settings.txt
 /bin/Win64/plugins/EXE/HeidiSQL/tabs.ini
+/bin/Win32/plugins/EXE/HeidiSQL/Backups
+/bin/Win32/plugins/EXE/HeidiSQL/Snippets
+/bin/Win64/plugins/EXE/HeidiSQL/Backups
+/bin/Win64/plugins/EXE/HeidiSQL/Snippets
