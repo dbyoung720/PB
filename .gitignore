@@ -20,3 +20,7 @@ bin/Win64/plugins/lng/obj
 /modules/Vcl.Graphics.pas
 /bin/Win32/plugins/EXE/uninstallview/UninstallView.cfg
 /bin/Win64/plugins/EXE/uninstallview/UninstallView.cfg
+/bin/Win32/plugins/EXE/HeidiSQL/portable_settings.txt
+/bin/Win32/plugins/EXE/HeidiSQL/tabs.ini
+/bin/Win64/plugins/EXE/HeidiSQL/portable_settings.txt
+/bin/Win64/plugins/EXE/HeidiSQL/tabs.ini
