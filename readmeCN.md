@@ -88,4 +88,5 @@ extern "C" __declspec(dllexport) void db_ShowDllForm_Plugins(TLangStyle* lsFileT
     添加数据库支持（由于本人对数据库不熟悉，所以开发较慢，又是业余时间开发）;
     
 ## 八：注意事项：
-   如果运行 PBox(x64) 下面的 JavaCV 模块，需要安装 CUDA11 SDK，并将 CUDA11 SDK 的 BIN 目录添加到系统搜索路径中；
+   1、如果运行 PBox(x64) 下面的 JavaCV 模块，需要安装 CUDA11 SDK，并将 CUDA11 SDK 的 BIN 目录添加到系统搜索路径中；
+   2、因为初始化Java VM，在 Delphi IDE 中，会报异常：c0000005 ACCESS_VIOLATION，选择 "Ignore this exception type"，下次就不会提示了；
