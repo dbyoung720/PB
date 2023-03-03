@@ -7,6 +7,7 @@
 *.pdb
 vcl/Raize
 __history
+/src/db
 /src/Win32
 /src/Win64
 bin/Win32/plugins/lng/obj
@@ -29,4 +30,3 @@ bin/Win64/plugins/lng/obj
 /bin/Win64/plugins/EXE/HeidiSQL/Snippets
 /bin/Win64/plugins/SDK/OpenCV/4.6.0/bin/opencv_cudaarithm460.dll
 /bin/Win64/plugins/SDK/OpenCV/4.6.0/bin/opencv_cudafilters460.dll
-/src/db
