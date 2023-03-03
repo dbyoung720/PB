@@ -1,6 +1,8 @@
 unit uInitJava;
 {
-  全局初始化 Java 虚拟机
+  Func : Global init java vm
+  Auth : dbyoung@sina.com
+  Time : 2023-03-01
 }
 
 interface
