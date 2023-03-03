@@ -5,7 +5,6 @@
 *.tvsconfig
 *.rsm
 *.pdb
-uniDAC
 vcl/Raize
 __history
 /src/Win32
@@ -30,3 +29,4 @@ bin/Win64/plugins/lng/obj
 /bin/Win64/plugins/EXE/HeidiSQL/Snippets
 /bin/Win64/plugins/SDK/OpenCV/4.6.0/bin/opencv_cudaarithm460.dll
 /bin/Win64/plugins/SDK/OpenCV/4.6.0/bin/opencv_cudafilters460.dll
+db
