@@ -10,7 +10,8 @@ uses
   Vcl.Forms,
   frmMain in 'frmMain.pas' {frmPBox},
   uBaseForm in 'uBaseForm.pas',
-  uUICreate in 'uUICreate.pas';
+  uUICreate in 'uUICreate.pas',
+  uInitJava in 'uInitJava.pas';
 
 {$R *.res}
 

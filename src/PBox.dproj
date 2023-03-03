@@ -5,7 +5,7 @@
         <FrameworkType>VCL</FrameworkType>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Release</Config>
-        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <Platform Condition="'$(Platform)'==''">Win64</Platform>
         <TargetedPlatforms>3</TargetedPlatforms>
         <AppType>Application</AppType>
         <MainSource>PBox.dpr</MainSource>
@@ -132,7 +132,7 @@
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Icon_MainIcon>PBox.ico</Icon_MainIcon>
         <AppExecutionLevel>requireAdministrator</AppExecutionLevel>
-        <DCC_UnitSearchPath>..\vcl\HOOK;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>..\vcl\HOOK;..\vcl\JNI;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
@@ -140,7 +140,7 @@
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Icon_MainIcon>PBox.ico</Icon_MainIcon>
         <AppExecutionLevel>requireAdministrator</AppExecutionLevel>
-        <DCC_UnitSearchPath>..\vcl\HOOK;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>..\vcl\HOOK;..\vcl\JNI;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
@@ -152,6 +152,7 @@
         </DCCReference>
         <DCCReference Include="uBaseForm.pas"/>
         <DCCReference Include="uUICreate.pas"/>
+        <DCCReference Include="uInitJava.pas"/>
         <RcItem Include="Exit.ico">
             <ResourceType>ICON</ResourceType>
             <ResourceId>QUITBUTTONICON</ResourceId>
