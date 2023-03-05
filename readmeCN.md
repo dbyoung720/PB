@@ -89,4 +89,6 @@ extern "C" __declspec(dllexport) void db_ShowDllForm_Plugins(TLangStyle* lsFileT
     
 ## 八：注意事项：
    1、如果运行 PBox(x64) 下面的 JavaCV 模块，需要安装 CUDA11 SDK，并将 CUDA11 SDK 的 BIN 目录添加到系统搜索路径中；
-   2、因为初始化Java VM，在 Delphi IDE 中，会报异常：c0000005 ACCESS_VIOLATION，选择 "Ignore this exception type"，下次就不会提示了；
+   2、由于 opencv_cudaarithm460.dll、opencv_cudafilters460.dll 超过了100M，被压缩保存了，所以先解压，再运行 JavaCV (x64)；
+   3、因为初始化Java VM，在 Delphi IDE 中，会报异常：c0000005 ACCESS_VIOLATION，选择 "Ignore this exception type"，下次就不会提示了；
+
