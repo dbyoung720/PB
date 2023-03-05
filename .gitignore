@@ -7,7 +7,6 @@
 *.pdb
 vcl/Raize
 __history
-/src/db
 /src/Win32
 /src/Win64
 bin/Win32/plugins/lng/obj
