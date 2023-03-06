@@ -16,7 +16,7 @@ uses
 
 begin
   OnlyRunOneInstance;
-  ShowLoginForm(MyOnCheckPassword);
+  FstrUserLoginName           := ShowLoginForm(MyOnCheckPassword);
   ReportMemoryLeaksOnShutdown := True;
   Application.Initialize;
   Application.MainFormOnTaskbar := True;

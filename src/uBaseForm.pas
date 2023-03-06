@@ -109,6 +109,9 @@ type
   { 数据库登录密码回调函数 }
   TOnCheckPassword = function(const strPassword: PAnsiChar): PAnsiChar; stdcall;
 
+var
+  FstrUserLoginName: String = 'dbyoung';
+
 procedure DLog(const strLog: String);
 
 { 只允许运行一个实例 }
@@ -166,7 +169,7 @@ procedure LoadAllMenuIconSpeed(const ilMainMenu: TImageList);
 procedure SortModuleList(var lstDll: THashedStringList);
 
 { 显示登录窗体 }
-procedure ShowLoginForm(OnCheckPassword: TOnCheckPassword);
+function ShowLoginForm(OnCheckPassword: TOnCheckPassword): String;
 
 { 从 .msc 文件中获取图标 }
 procedure LoadIconFromMSCFile(const strMSCFileName: string; var IcoMSC: TIcon);
@@ -1913,11 +1916,11 @@ begin
 end;
 
 { 显示登录窗体 }
-procedure ShowLoginForm(OnCheckPassword: TOnCheckPassword);
+function ShowLoginForm(OnCheckPassword: TOnCheckPassword): String;
 var
   strDBEngineDllFileName: String;
   hDll                  : HMODULE;
-  pFunc                 : procedure(OnCheckPassword: TOnCheckPassword); stdcall;
+  pFunc                 : function(OnCheckPassword: TOnCheckPassword): PAnsiChar; stdcall;
 begin
   strDBEngineDllFileName := ExtractFilePath(ParamStr(0)) + 'plugins\dbe.dll';
   if not FileExists(strDBEngineDllFileName) then
@@ -1932,7 +1935,7 @@ begin
     if @pFunc = nil then
       Exit;
 
-    pFunc(OnCheckPassword);
+    Result := String(pFunc(OnCheckPassword));
   finally
     FreeLibrary(hDll);
   end;

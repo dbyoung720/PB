@@ -89,7 +89,7 @@ end;
 
 procedure TfrmPBox.FormActivate(Sender: TObject);
 begin
-  FLabellogin.Caption := 'dbyoung';
+  FLabellogin.Caption := string(FstrUserLoginName);
   TrayMenu            := pmTray;
   FlistModuleDll      := THashedStringList.Create;
   LoadButtonBmp(imgSubModuleClose, 'Close', 0);
