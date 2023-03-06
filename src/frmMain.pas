@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, Winapi.IpTypes, System.SysUtils, System.Classes, System.IniFiles, System.UITypes, System.StrUtils, System.Math, System.ImageList,
   Vcl.Graphics, Vcl.Buttons, Vcl.Controls, Vcl.Forms, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.Menus, Vcl.StdCtrls, Vcl.ToolWin, Vcl.ImgList, IdHashMessageDigest, uBaseForm;
 
-{ 数据库登录；检查密码是否正确 }
+{ 用户登录；检查密码是否正确 }
 function MyOnCheckPassword(const strPassword: PAnsiChar): PAnsiChar; stdcall;
 
 type
@@ -384,7 +384,7 @@ begin
   End;
 end;
 
-{ 数据库登录；检查密码是否正确 }
+{ 用户登录；检查密码是否正确 }
 function MyOnCheckPassword(const strPassword: PAnsiChar): PAnsiChar; stdcall;
 begin
   Result := PAnsiChar(AnsiString(TestPassowrd_MD5String(Trim(string(strPassword)))));
