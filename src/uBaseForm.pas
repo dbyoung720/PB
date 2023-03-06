@@ -106,6 +106,9 @@ type
   Tdb_ShowDllForm_Plugins_VCForm = procedure(var vct: TLangStyle; var strParentModuleName, strModuleName: PAnsiChar; var strClassName, strWindowName: PAnsiChar; const bShow: Boolean = False); stdcall; // VC
   Tdb_ShowDllForm_Plugins_QTForm = procedure(var vct: TLangStyle; var strParentModuleName, strModuleName: PAnsiChar; var strClassName, strWindowName: PAnsiChar; const bShow: Boolean = False); stdcall; // QT
 
+  { 数据库登录密码回调函数 }
+  TOnCheckPassword = function(const strPassword: PAnsiChar): PAnsiChar; stdcall;
+
 procedure DLog(const strLog: String);
 
 { 只允许运行一个实例 }
@@ -162,6 +165,12 @@ procedure LoadAllMenuIconSpeed(const ilMainMenu: TImageList);
 { 排序模块 }
 procedure SortModuleList(var lstDll: THashedStringList);
 
+{ 显示登录窗体 }
+procedure ShowLoginForm(OnCheckPassword: TOnCheckPassword);
+
+{ 从 .msc 文件中获取图标 }
+procedure LoadIconFromMSCFile(const strMSCFileName: string; var IcoMSC: TIcon);
+
 implementation
 
 procedure DLog(const strLog: String);
@@ -211,13 +220,12 @@ begin
   Result := ExtractFilePath(ParamStr(0)) + 'plugins\' + ChangeFileExt(ExtractFileName(ParamStr(0)), '.lsi');
 end;
 
-
 { 是否开启了加速加载子模块 }
 function CheckLoadSpeed: Boolean;
 begin
   with TIniFile.Create(ChangeFileExt(ParamStr(0), '.ini')) do
   begin
-    Result := ReadBool(c_strIniUISection, 'LoadSpeed', False) and FileExists(GetLoadSpeedFileName_Config) and FileExists(GetLoadSpeedFileName_Icolst);
+    Result := ReadBool(c_strIniUISection, 'LoadSpeed', False) and FileExists(GetLoadSpeedFileName_Config) and FileExists(GetLoadSpeedFileName_icolst);
     Free;
   end;
 end;
@@ -225,9 +233,8 @@ end;
 { 加速加载时，每个菜单项的图标 }
 procedure LoadAllMenuIconSpeed(const ilMainMenu: TImageList);
 begin
-  TImageListEx(ilMainMenu).LoadFromFile(GetLoadSpeedFileName_Icolst);
+  TImageListEx(ilMainMenu).LoadFromFile(GetLoadSpeedFileName_icolst);
 end;
-
 
 { 获取控件高度 }
 function GetLabelHeight(const strFontName: string; const intFontSize: Integer): Integer;
@@ -1279,7 +1286,6 @@ begin
   end;
 end;
 
-
 { TBaseForm }
 
 procedure TBaseForm.CreateSubControl(pnl: TPanel);
@@ -1903,6 +1909,32 @@ begin
   begin
     WriteString('Network', 'AdapterName', strName);
     Free;
+  end;
+end;
+
+{ 显示登录窗体 }
+procedure ShowLoginForm(OnCheckPassword: TOnCheckPassword);
+var
+  strDBEngineDllFileName: String;
+  hDll                  : HMODULE;
+  pFunc                 : procedure(OnCheckPassword: TOnCheckPassword); stdcall;
+begin
+  strDBEngineDllFileName := ExtractFilePath(ParamStr(0)) + 'plugins\dbe.dll';
+  if not FileExists(strDBEngineDllFileName) then
+    Exit;
+
+  hDll := LoadLibrary(PChar(strDBEngineDllFileName));
+  if hDll = INVALID_HANDLE_VALUE then
+    Exit;
+
+  try
+    pFunc := GetProcaddress(hDll, 'ShowLoginForm');
+    if @pFunc = nil then
+      Exit;
+
+    pFunc(OnCheckPassword);
+  finally
+    FreeLibrary(hDll);
   end;
 end;
 

@@ -4,7 +4,10 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, Winapi.IpTypes, System.SysUtils, System.Classes, System.IniFiles, System.UITypes, System.StrUtils, System.Math, System.ImageList,
-  Vcl.Graphics, Vcl.Buttons, Vcl.Controls, Vcl.Forms, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.Menus, Vcl.StdCtrls, Vcl.ToolWin, Vcl.ImgList, uBaseForm;
+  Vcl.Graphics, Vcl.Buttons, Vcl.Controls, Vcl.Forms, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.Menus, Vcl.StdCtrls, Vcl.ToolWin, Vcl.ImgList, IdHashMessageDigest, uBaseForm;
+
+{ 数据库登录；检查密码是否正确 }
+function MyOnCheckPassword(const strPassword: PAnsiChar): PAnsiChar; stdcall;
 
 type
   TfrmPBox = class(TBaseForm)
@@ -350,6 +353,41 @@ begin
     lsEXE:                                                                       //
       ShowEXEForm(strFileName, strEXEFormClassName, strEXEFormTitleName, tsDll); // 创建 EXE Form
   end;
+end;
+
+{ 你自己的数据库加密算法 }
+function TestPassowrd_MD5String(const Astr: String): String;
+var
+  MemSteam: TMemoryStream;
+  MyMD5   : TIdHashMessageDigest5;
+  B       : Tbytes;
+  n       : Integer;
+begin
+  B := BytesOf(Astr);
+  n := Length(B);
+
+  MemSteam := TMemoryStream.Create;
+  Try
+    MemSteam.SetSize(n);
+    MemSteam.Position := 0;
+    MemSteam.Write(B[0], n);
+    MemSteam.Position := 0;
+    MyMD5             := TIdHashMessageDigest5.Create;
+    Try
+      Result := MyMD5.HashStreamAsHex(MemSteam);
+    Finally
+      MyMD5.Free;
+    End;
+  Finally
+    MemSteam.Free;
+    SetLength(B, 0);
+  End;
+end;
+
+{ 数据库登录；检查密码是否正确 }
+function MyOnCheckPassword(const strPassword: PAnsiChar): PAnsiChar; stdcall;
+begin
+  Result := PAnsiChar(AnsiString(TestPassowrd_MD5String(Trim(string(strPassword)))));
 end;
 
 end.

@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, Winapi.ShellAPI, Winapi.IpRtrMib, Winapi.TlHelp32, Winapi.ShlObj, Winapi.IpTypes, Winapi.ActiveX, Winapi.IpHlpApi, Winapi.ImageHlp, System.Win.Registry,
-  System.IOUtils, System.Types, System.Math, System.SysUtils, System.StrUtils, System.Classes, System.IniFiles, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Data.Win.ADODB, Data.db;
+  System.IOUtils, System.Types, System.Math, System.SysUtils, System.StrUtils, System.Classes, System.IniFiles, Vcl.Graphics, Vcl.Controls, Vcl.Forms,
+  Data.Win.ADODB, Data.db, CnAES;
 
 procedure DelayTime(const intTime: Cardinal);
 
@@ -23,10 +24,17 @@ function GetDllFilePath: String;
 { 获取 PBox 主窗体句柄 <非 Dll 窗体> }
 function GetMainFormHandle: hWnd;
 
+{ 加密字符串 }
+function EncryptString(const strTemp, strKey: string): String;
+
+{ 解密字符串 }
+function DecryptString(const strTemp, strKey: string): String;
+
 const
   c_strIniModuleSection = 'Module';
   c_strTitle            = 'PBox 基于 DLL 窗口的模块化开发平台 v5.0';
   c_strMsgTitle: PChar  = '系统提示：';
+  c_strAESKEY           = 'dbyoung@sina.com';
 
 implementation
 
@@ -206,6 +214,18 @@ begin
   EnumWindows(@_EnumWindowsProc, Integer(@Buffer));
   if Buffer[1] > 0 then
     Result := Buffer[1];
+end;
+
+{ 加密字符串 }
+function EncryptString(const strTemp, strKey: string): String;
+begin
+  Result := string(AESEncryptEcbStrToHex(AnsiString(strTemp), AnsiString(strKey)));
+end;
+
+{ 解密字符串 }
+function DecryptString(const strTemp, strKey: string): String;
+begin
+  Result := string(AESDecryptEcbStrFromHex(AnsiString(strTemp), AnsiString(strKey)));
 end;
 
 end.

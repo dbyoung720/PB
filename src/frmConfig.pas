@@ -98,19 +98,34 @@ begin
   end;
 end;
 
-procedure SortModuleList(lst: THashedStringList);
+procedure ShowDBConfigForm(memIni: TMemIniFile; frm: TForm);
+var
+  strDBEngineDllFileName: String;
+  hDLL                  : HMODULE;
+  pFunc                 : procedure(memIni: TMemIniFile; frm: TForm); stdcall;
 begin
-  //
-end;
+  strDBEngineDllFileName := ExtractFilePath(ParamStr(0)) + 'plugins\dbe.dll';
+  if not FileExists(strDBEngineDllFileName) then
+    Exit;
 
-procedure LoadIconFromMSCFile(const strIconFileName: String; ico: TIcon);
-begin
-  //
+  hDLL := LoadLibrary(PChar(strDBEngineDllFileName));
+  if hDLL = INVALID_HANDLE_VALUE then
+    Exit;
+
+  try
+    pFunc := GetProcAddress(hDLL, 'ShowDBConfigForm');
+    if @pFunc = nil then
+      Exit;
+
+    pFunc(memIni, frm);
+  finally
+    FreeLibrary(hDLL);
+  end;
 end;
 
 procedure TfrmConfig.btnDatabaseConfigClick(Sender: TObject);
 begin
-  // ShowDBConfigForm(FmemIni);
+  ShowDBConfigForm(FmemIni, Self);
 end;
 
 { Ä£¿éÉÏÒÆ }
