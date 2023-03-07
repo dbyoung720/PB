@@ -152,7 +152,7 @@
         <DCCReference Include="uBaseForm.pas"/>
         <DCCReference Include="uUICreate.pas"/>
         <DCCReference Include="uInitJava.pas"/>
-        <RcItem Include="Exit.ico">
+        <RcItem Include="Quit.ico">
             <ResourceType>ICON</ResourceType>
             <ResourceId>QUITBUTTONICON</ResourceId>
         </RcItem>
@@ -191,7 +191,8 @@
                 </DeployFile>
                 <DeployFile LocalName="..\bin\Win64\PBox.exe" Configuration="Release" Class="ProjectOutput"/>
                 <DeployFile LocalName="Exit.ico" Configuration="Release" Class="ProjectFile"/>
-                <DeployFile LocalName="Exit.ico" Configuration="Release" Class="ProjectFile">
+                <DeployFile LocalName="Quit.ico" Configuration="Release" Class="ProjectFile"/>
+                <DeployFile LocalName="Quit.ico" Configuration="Release" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>

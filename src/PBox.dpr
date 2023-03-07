@@ -3,11 +3,13 @@ program PBox;
 {$WEAKLINKRTTI ON}
 {$RTTI EXPLICIT METHODS([]) PROPERTIES([]) FIELDS([])}
 {$IFEND}
+
+
 {$R *.dres}
 
 uses
   Vcl.Forms,
-  frmMain in 'frmMain.pas' {frmPBox} ,
+  frmMain in 'frmMain.pas' {frmPBox},
   uBaseForm in 'uBaseForm.pas',
   uUICreate in 'uUICreate.pas',
   uInitJava in 'uInitJava.pas';
