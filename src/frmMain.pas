@@ -124,6 +124,9 @@ procedure TfrmPBox.FormResize(Sender: TObject);
 var
   bakActiveTabSheet: TTabSheet;
 begin
+  if FlistModuleDll = nil then
+    Exit;
+
   { BUTTON UI }
   if GetCurrUIStyle = uiButton then
   begin

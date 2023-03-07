@@ -33,7 +33,6 @@ begin
   tlbMenu.Menu           := mmMain;
   tlbMenu.Images         := nil;
   tlbMenu.Height         := 24;
-  tlbMenu.Visible        := True;
   tlbMenu.Parent.Visible := True;
   mmMain.AutoMerge       := True;
   pgAll.ActivePageIndex  := 0;
@@ -211,13 +210,8 @@ begin
   FpnlModuleDialog := pnlButton;
 
   FreeUIButtonResource(tlbMenu);
-  pgcAll.ActivePageIndex := 1;
   ilPModule.Clear;
-  pnlButton.Visible      := False;
-  tlbMenu.Parent.Visible := True;
-  tlbMenu.Visible        := True;
-  tlbMenu.Images         := ilPModule;
-  tlbMenu.Height         := 58;
+  pnlButton.Visible := False;
 
   { 获取所有父模块图标 }
   for I := 0 to mmMain.Items.Count - 1 do
@@ -270,6 +264,11 @@ begin
   begin
     tlbMenu.Buttons[I].Down := False;
   end;
+
+  tlbMenu.Images         := ilPModule;
+  tlbMenu.Height         := 58;
+  tlbMenu.Parent.Visible := True;
+  pgcAll.ActivePageIndex := 1;
 end;
 
 type
@@ -381,7 +380,6 @@ var
 begin
   FctgrypnlgrpModule     := ctgrypnlgrpModule;
   FmmMain                := mmMain;
-  tlbMenu.Visible        := False;
   tlbMenu.Parent.Visible := False;
 
   FreePanlSubModuleButton(ctgrypnlgrpModule);
