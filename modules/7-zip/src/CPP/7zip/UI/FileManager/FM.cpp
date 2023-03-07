@@ -298,18 +298,18 @@ static BOOL InitInstance(int nCmdShow)
   if (nCmdShow == SW_SHOWMAXIMIZED)
     g_Maximized = true;
 
-  #ifndef UNDER_CE
-  WINDOWPLACEMENT placement;
-  placement.length = sizeof(placement);
-  if (wnd.GetPlacement(&placement))
-  {
-    if (windowPosIsRead)
-      placement.rcNormalPosition = info.rect;
-    placement.showCmd = nCmdShow;
-    wnd.SetPlacement(&placement);
-  }
-  else
-  #endif
+  //#ifndef UNDER_CE
+  //WINDOWPLACEMENT placement;
+  //placement.length = sizeof(placement);
+  //if (wnd.GetPlacement(&placement))
+  //{
+  //  if (windowPosIsRead)
+  //    placement.rcNormalPosition = info.rect;
+  //  placement.showCmd = nCmdShow;
+  //  wnd.SetPlacement(&placement);
+  //}
+  //else
+  //#endif
     wnd.Show(nCmdShow);
 
   return TRUE;
