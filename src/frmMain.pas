@@ -33,7 +33,6 @@ type
     ilPModule: TImageList;
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure FormDestroy(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure imgSubModuleCloseMouseEnter(Sender: TObject);
     procedure imgSubModuleCloseMouseLeave(Sender: TObject);
@@ -41,6 +40,8 @@ type
     procedure mniFuncMenuConfigClick(Sender: TObject);
     procedure mniFuncMenuMoneyClick(Sender: TObject);
     procedure mniFuncMenuAboutClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     FbChangeUI    : Boolean;
     FlistModuleDll: THashedStringList;
@@ -54,7 +55,7 @@ type
     { 创建 UI }
     procedure CreateUI(const lst: THashedStringList);
     { 释放已经创建的 DLL Form 窗体 }
-    procedure FreeDllForm;
+    procedure FreeDllForm(const bExit: Boolean = False);
     { 释放创建的菜单资源 }
     procedure FreeMenu;
     { 创建显示界面 }
@@ -81,10 +82,22 @@ begin
   pgcAll.ActivePage := tsWelcome;
 end;
 
+procedure TfrmPBox.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  FreeDllForm(True);
+end;
+
 procedure TfrmPBox.FormCreate(Sender: TObject);
 begin
   FbChangeUI := False;
   InitPageAll;
+end;
+
+procedure TfrmPBox.FormDestroy(Sender: TObject);
+begin
+  FreeUIButtonResource(tlbMenu);
+  FreeMenu;
+  FlistModuleDll.Free;
 end;
 
 procedure TfrmPBox.FormActivate(Sender: TObject);
@@ -94,14 +107,6 @@ begin
   FlistModuleDll      := THashedStringList.Create;
   LoadButtonBmp(imgSubModuleClose, 'Close', 0);
   ReCreate;
-end;
-
-procedure TfrmPBox.FormDestroy(Sender: TObject);
-begin
-  FreeUIButtonResource(tlbMenu);
-  FreeDllForm;
-  FreeMenu;
-  FlistModuleDll.Free;
 end;
 
 function EnumChildFunc(hDllForm: THandle; hParentHandle: THandle): Boolean; stdcall;
@@ -156,9 +161,9 @@ begin
   end;
 end;
 
-procedure TfrmPBox.FreeDllForm;
+procedure TfrmPBox.FreeDllForm(const bExit: Boolean = False);
 begin
-  CheckLastVCDLGDllClose;
+  CheckLastVCDLGDllClose(True);
   CheckLastVCMFCDllClose;
   CheckLastDelphiDllClose;
   CheckLastExeFormClose;

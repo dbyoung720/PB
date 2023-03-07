@@ -13,7 +13,7 @@ uses Winapi.Windows, Winapi.Messages, System.SysUtils, System.Classes, Vcl.Forms
 procedure ShowVCDLGDllForm(const strVCDllFileName: String; tsDll: TTabSheet);
 
 { 检查上一次创建的 VC DLG DLL Form 是否关闭 }
-procedure CheckLastVCDLGDllClose;
+procedure CheckLastVCDLGDllClose(const bExit: Boolean = False);
 
 implementation
 
@@ -27,6 +27,7 @@ var
   FhVCDLGDllModule       : HMODULE;
   FhVCDLGDLLForm         : THandle;
   FLangStyle             : TLangStyle;
+  FbExit                 : Boolean = False;
 
 procedure DLog(const strLog: String);
 begin
@@ -98,6 +99,7 @@ begin
 
   FTabDllForm             := tsDll;
   FstrBakVCDLGDllFileName := strVCDllFileName;
+  FbExit                  := False;
 
   { 只获取参数，不调用显示窗体。下 HOOK，HOOK 指定窗体 }
   hDll := LoadLibrary(PChar(strVCDllFileName));
@@ -124,13 +126,19 @@ begin
   FstrVCDLGDllWindowName  := '';
   FstrBakVCDLGDllFileName := '';
   RestoreDefultTabSheet(tsDll.PageControl);
+  if FbExit then
+  begin
+    Application.MainForm.Close;
+  end;
 end;
 
 { 检查上一次创建的 VC DLG DLL Form 是否关闭 }
-procedure CheckLastVCDLGDllClose;
+procedure CheckLastVCDLGDllClose(const bExit: Boolean = False);
 begin
   if FhVCDLGDLLForm = 0 then
     Exit;
+
+  FbExit := bExit;
 
   { 发送关闭窗体命令 }
   PostMessage(FhVCDLGDLLForm, WM_SYSCOMMAND, SC_CLOSE, 0);

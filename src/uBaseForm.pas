@@ -96,7 +96,7 @@ type
   { 界面风格 }
   TUIType = (uiMenu, uiButton, uiList, uiCenter);
 
-  TCallFunc = procedure() of object;
+  TCallFunc = procedure(const bExit: Boolean = False) of object;
 
   { DLL 类型：Delphi Dll、VC Dialog Dll、VC MFC Dll、QT Dll、EXE }
   TLangStyle = (lsDelphiDll, lsVCDLGDll, lsVCMFCDll, lsQTDll, lsEXE);
@@ -1667,6 +1667,7 @@ end;
 
 procedure TBaseForm.OnSysBtnCloseClick(Sender: TObject);
 begin
+  Tag := 999;
   PostMessage(Handle, WM_SYSCOMMAND, SC_CLOSE, 0);
 end;
 
