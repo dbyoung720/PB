@@ -82,22 +82,10 @@ begin
   pgcAll.ActivePage := tsWelcome;
 end;
 
-procedure TfrmPBox.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  FreeDllForm(True);
-end;
-
 procedure TfrmPBox.FormCreate(Sender: TObject);
 begin
   FbChangeUI := False;
   InitPageAll;
-end;
-
-procedure TfrmPBox.FormDestroy(Sender: TObject);
-begin
-  FreeUIButtonResource(tlbMenu);
-  FreeMenu;
-  FlistModuleDll.Free;
 end;
 
 procedure TfrmPBox.FormActivate(Sender: TObject);
@@ -107,6 +95,18 @@ begin
   FlistModuleDll      := THashedStringList.Create;
   LoadButtonBmp(imgSubModuleClose, 'Close', 0);
   ReCreate;
+end;
+
+procedure TfrmPBox.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  FreeDllForm(True);
+end;
+
+procedure TfrmPBox.FormDestroy(Sender: TObject);
+begin
+  FreeUIButtonResource(tlbMenu);
+  FreeMenu;
+  FlistModuleDll.Free;
 end;
 
 function EnumChildFunc(hDllForm: THandle; hParentHandle: THandle): Boolean; stdcall;
