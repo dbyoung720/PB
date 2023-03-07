@@ -245,24 +245,8 @@ end;
 
 { 释放创建的菜单资源 }
 procedure TfrmPBox.FreeMenu;
-var
-  I              : Integer;
-  J              : Integer;
-  mmParent, mmSub: TMenuItem;
 begin
-  mmMainMenu.AutoMerge := False;
-  for I                := mmMainMenu.Items.Count - 1 downto 0 do
-  begin
-    mmParent := mmMainMenu.Items.Items[I];
-    for J    := mmParent.Count - 1 downto 0 do
-    begin
-      mmSub := mmParent.Items[J];
-      mmSub.Free;
-    end;
-    mmParent.Free;
-  end;
   mmMainMenu.Items.Clear;
-  mmMainMenu.AutoMerge := False;
 end;
 
 procedure TfrmPBox.CreateMenu(const listDll: THashedStringList);
