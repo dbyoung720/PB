@@ -5,7 +5,7 @@ program PBox;
 {$IFEND}
 
 
-{$R *.dres}
+
 
 uses
   Vcl.Forms,

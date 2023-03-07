@@ -152,10 +152,6 @@
         <DCCReference Include="uBaseForm.pas"/>
         <DCCReference Include="uUICreate.pas"/>
         <DCCReference Include="uInitJava.pas"/>
-        <RcItem Include="Quit.ico">
-            <ResourceType>ICON</ResourceType>
-            <ResourceId>QUITBUTTONICON</ResourceId>
-        </RcItem>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -192,12 +188,6 @@
                 <DeployFile LocalName="..\bin\Win64\PBox.exe" Configuration="Release" Class="ProjectOutput"/>
                 <DeployFile LocalName="Exit.ico" Configuration="Release" Class="ProjectFile"/>
                 <DeployFile LocalName="Quit.ico" Configuration="Release" Class="ProjectFile"/>
-                <DeployFile LocalName="Quit.ico" Configuration="Release" Class="ProjectFile">
-                    <Platform Name="Win32">
-                        <RemoteDir>.\</RemoteDir>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
                 <DeployFile LocalName="Win32\Debug\PBox.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployClass Name="AdditionalDebugSymbols">
                     <Platform Name="iOSSimulator">
