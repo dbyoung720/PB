@@ -1667,7 +1667,6 @@ end;
 
 procedure TBaseForm.OnSysBtnCloseClick(Sender: TObject);
 begin
-  Tag := 999;
   PostMessage(Handle, WM_SYSCOMMAND, SC_CLOSE, 0);
 end;
 
