@@ -120,12 +120,6 @@ procedure OnlyRunOneInstance;
 { 去除标题栏 }
 procedure RemoveCaption(hWnd: THandle);
 
-{ 搜索加载所有 DLL 模块 }
-procedure LoadAllDLLPlugins(var lstDll: THashedStringList; var ilMainMenu: TImageList);
-
-{ 搜索加载所有 EXE 模块 }
-procedure LoadAllEXEPlugins(var lstDll: THashedStringList; var ilMainMenu: TImageList);
-
 { 延时函数 }
 procedure DelayTime(const intTime: Cardinal);
 
@@ -159,12 +153,6 @@ function GetLoadSpeedFileName_Config: String;
 { 加速加载图标文件名称 }
 function GetLoadSpeedFileName_icolst: String;
 
-{ 是否开启了加速加载子模块 }
-function CheckLoadSpeed: Boolean;
-
-{ 加速加载时，每个菜单项的图标 }
-procedure LoadAllMenuIconSpeed(const ilMainMenu: TImageList);
-
 { 排序模块 }
 procedure SortModuleList(var lstDll: THashedStringList);
 
@@ -173,6 +161,9 @@ function ShowLoginForm(OnCheckPassword: TOnCheckPassword): String;
 
 { 从 .msc 文件中获取图标 }
 procedure LoadIconFromMSCFile(const strMSCFileName: string; var IcoMSC: TIcon);
+
+{ 加载所有的 DLL 和 EXE 到列表 }
+procedure LoadAllPlugins(var lstDll: THashedStringList; var ilSubModule: TImageList);
 
 implementation
 
@@ -1286,6 +1277,28 @@ begin
     SortSubModule(lstDll, strPModuleOrder, iniModule);
   finally
     iniModule.Free;
+  end;
+end;
+
+{ 加载所有的 DLL 和 EXE 到列表 }
+procedure LoadAllPlugins(var lstDll: THashedStringList; var ilSubModule: TImageList);
+begin
+  { 是否开启了加速加载子模块 }
+  if CheckLoadSpeed then
+  begin
+    lstDll.LoadFromFile(GetLoadSpeedFileName_Config);
+    LoadAllMenuIconSpeed(ilSubModule);
+  end
+  else
+  begin
+    { 搜索加载所有 DLL 模块 }
+    LoadAllDLLPlugins(lstDll, ilSubModule);
+
+    { 搜索加载所有 EXE 模块 }
+    LoadAllEXEPlugins(lstDll, ilSubModule);
+
+    { 排序模块 }
+    SortModuleList(lstDll);
   end;
 end;
 

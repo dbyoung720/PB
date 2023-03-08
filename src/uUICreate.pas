@@ -12,13 +12,13 @@ uses
   Vcl.Forms, Vcl.Menus, Vcl.ComCtrls, Vcl.Controls, Vcl.ExtCtrls, Vcl.Graphics, Vcl.Buttons, Vcl.StdCtrls, uBaseForm;
 
 { 菜单风格 UI }
-procedure CreateUIType_Menu(mmMain: TMainMenu; tlbMenu: TToolBar; pgAll: TPageControl; ilMainMenu: TImageList);
+procedure CreateUIType_Menu(mmMain: TMainMenu; tlbMenu: TToolBar; ilMainMenu: TImageList; pgAll: TPageControl);
 
 { 按钮风格 UI }
-procedure CreateUIType_Button(mmMain: TMainMenu; tlbMenu: TToolBar; ilMainMenu, ilPModule: TImageList; pnlButton: TPanel; pgcAll: TPageControl; FreeDllForm: TCallFunc);
+procedure CreateUIType_Button(mmMain: TMainMenu; tlbMenu: TToolBar; ilMainMenu: TImageList; pgcAll: TPageControl; ilPModule: TImageList; pnlButton: TPanel; FreeDllForm: TCallFunc);
 
 { 列表风格 UI }
-procedure CreateUIType_List(ctgrypnlgrpModule: TCategoryPanelGroup; mmMain: TMainMenu; tlbMenu: TToolBar; ilMainMenu: TImageList; pgcAll: TPageControl);
+procedure CreateUIType_List(mmMain: TMainMenu; tlbMenu: TToolBar; ilMainMenu: TImageList; pgcAll: TPageControl; ctgrypnlgrpModule: TCategoryPanelGroup);
 
 { 中心风格 UI }
 procedure CreateUIType_Center(mmMain: TMainMenu; tlbMenu: TToolBar; ilMainMenu: TImageList; pgcAll: TPageControl; var bChangeUI: Boolean);
@@ -28,7 +28,7 @@ procedure FreeUIButtonResource(tlbMenu: TToolBar);
 implementation
 
 { 菜单风格 UI }
-procedure CreateUIType_Menu(mmMain: TMainMenu; tlbMenu: TToolBar; pgAll: TPageControl; ilMainMenu: TImageList);
+procedure CreateUIType_Menu(mmMain: TMainMenu; tlbMenu: TToolBar; ilMainMenu: TImageList; pgAll: TPageControl);
 begin
   tlbMenu.Menu           := mmMain;
   tlbMenu.Images         := nil;
@@ -196,7 +196,7 @@ begin
 end;
 
 { 按钮风格 UI }
-procedure CreateUIType_Button(mmMain: TMainMenu; tlbMenu: TToolBar; ilMainMenu, ilPModule: TImageList; pnlButton: TPanel; pgcAll: TPageControl; FreeDllForm: TCallFunc);
+procedure CreateUIType_Button(mmMain: TMainMenu; tlbMenu: TToolBar; ilMainMenu: TImageList; pgcAll: TPageControl; ilPModule: TImageList; pnlButton: TPanel; FreeDllForm: TCallFunc);
 var
   I              : Integer;
   strIconFilePath: String;
@@ -373,7 +373,7 @@ begin
 end;
 
 { 列表风格 UI }
-procedure CreateUIType_List(ctgrypnlgrpModule: TCategoryPanelGroup; mmMain: TMainMenu; tlbMenu: TToolBar; ilMainMenu: TImageList; pgcAll: TPageControl);
+procedure CreateUIType_List(mmMain: TMainMenu; tlbMenu: TToolBar; ilMainMenu: TImageList; pgcAll: TPageControl; ctgrypnlgrpModule: TCategoryPanelGroup);
 var
   I  : Integer;
   pnl: TCategoryPanel;

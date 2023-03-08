@@ -47,8 +47,6 @@ type
     procedure InitPageAll;
     procedure ReCreate;
     procedure OnMenuItemClick(Sender: TObject);
-    { 加载所有的 DLL 和 EXE 到列表 }
-    procedure LoadAllPlugins(var lstDll: THashedStringList);
     { 创建模块功能菜单 }
     procedure CreateMenu(const listDll: THashedStringList);
     { 创建 UI }
@@ -158,7 +156,7 @@ end;
 
 procedure TfrmPBox.FreeDllForm(const bExit: Boolean = False);
 begin
-  CheckLastVCDLGDllClose(True);
+  CheckLastVCDLGDllClose(bExit);
   CheckLastVCMFCDllClose;
   CheckLastDelphiDllClose;
   CheckLastExeFormClose;
@@ -188,31 +186,10 @@ end;
 procedure TfrmPBox.ReCreate;
 begin
   { 加载所有的 DLL 和 EXE 模块到列表 }
-  LoadAllPlugins(FlistModuleDll);
+  LoadAllPlugins(FlistModuleDll, ilMainMenu);
 
   { 创建 UI }
   CreateUI(FlistModuleDll);
-end;
-
-procedure TfrmPBox.LoadAllPlugins(var lstDll: THashedStringList);
-begin
-  { 是否开启了加速加载子模块 }
-  if CheckLoadSpeed then
-  begin
-    lstDll.LoadFromFile(GetLoadSpeedFileName_Config);
-    LoadAllMenuIconSpeed(ilMainMenu);
-  end
-  else
-  begin
-    { 搜索加载所有 DLL 模块 }
-    LoadAllDLLPlugins(lstDll, ilMainMenu);
-
-    { 搜索加载所有 EXE 模块 }
-    LoadAllEXEPlugins(lstDll, ilMainMenu);
-
-    { 排序模块 }
-    SortModuleList(FlistModuleDll);
-  end;
 end;
 
 procedure TfrmPBox.mniFuncMenuAboutClick(Sender: TObject);
@@ -290,11 +267,11 @@ begin
   UI := GetCurrUIStyle;
   case UI of
     uiMenu:
-      CreateUIType_Menu(mmMainMenu, tlbMenu, pgcAll, ilMainMenu);
+      CreateUIType_Menu(mmMainMenu, tlbMenu, ilMainMenu, pgcAll);
     uiButton:
-      CreateUIType_Button(mmMainMenu, tlbMenu, ilMainMenu, ilPModule, pnlModuleDialog, pgcAll, FreeDllForm);
+      CreateUIType_Button(mmMainMenu, tlbMenu, ilMainMenu, pgcAll, ilPModule, pnlModuleDialog, FreeDllForm);
     uiList:
-      CreateUIType_List(ctgrypnlgrpModule, mmMainMenu, tlbMenu, ilMainMenu, pgcAll);
+      CreateUIType_List(mmMainMenu, tlbMenu, ilMainMenu, pgcAll, ctgrypnlgrpModule);
     uiCenter:
       CreateUIType_Center(mmMainMenu, tlbMenu, ilMainMenu, pgcAll, FbChangeUI);
   end;
