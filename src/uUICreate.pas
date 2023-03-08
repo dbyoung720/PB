@@ -211,6 +211,7 @@ begin
 
   FreeUIButtonResource(tlbMenu);
   ilPModule.Clear;
+  tlbMenu.Images    := ilPModule;
   pnlButton.Visible := False;
 
   { 获取所有父模块图标 }
@@ -265,7 +266,6 @@ begin
     tlbMenu.Buttons[I].Down := False;
   end;
 
-  tlbMenu.Images         := ilPModule;
   tlbMenu.Height         := 58;
   tlbMenu.Parent.Visible := True;
   pgcAll.ActivePageIndex := 1;

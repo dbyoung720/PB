@@ -21,25 +21,24 @@ object frmPBox: TfrmPBox
     Left = 0
     Top = 0
     Width = 1049
-    Height = 24
+    Height = 58
     AutoSize = True
     BandBorderStyle = bsNone
     Bands = <
       item
         Control = tlbMenu
         ImageIndex = -1
-        MinHeight = 24
+        MinHeight = 58
         Width = 1047
       end>
     EdgeInner = esNone
     EdgeOuter = esNone
     FixedOrder = True
-    ExplicitWidth = 1045
     object tlbMenu: TToolBar
       Left = 2
       Top = 0
       Width = 1047
-      Height = 24
+      Height = 58
       ButtonHeight = 38
       ButtonWidth = 43
       Caption = 'tlbMenu'
@@ -55,15 +54,16 @@ object frmPBox: TfrmPBox
   end
   object pgcAll: TPageControl
     Left = 0
-    Top = 24
+    Top = 58
     Width = 1049
-    Height = 647
+    Height = 613
     ActivePage = tsWelcome
     Align = alClient
     DoubleBuffered = True
     ParentDoubleBuffered = False
     Style = tsFlatButtons
     TabOrder = 1
+    ExplicitTop = 24
     ExplicitWidth = 1045
     ExplicitHeight = 646
     object tsWelcome: TTabSheet
@@ -125,7 +125,7 @@ object frmPBox: TfrmPBox
       object ctgrypnlgrpModule: TCategoryPanelGroup
         Left = 0
         Top = 0
-        Height = 614
+        Height = 580
         VertScrollBar.Tracking = True
         Color = clWhite
         HeaderFont.Charset = DEFAULT_CHARSET
@@ -134,6 +134,7 @@ object frmPBox: TfrmPBox
         HeaderFont.Name = 'Tahoma'
         HeaderFont.Style = []
         TabOrder = 0
+        ExplicitHeight = 614
       end
     end
     object tsCenter: TTabSheet
