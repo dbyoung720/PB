@@ -11,7 +11,6 @@ object frmPBox: TfrmPBox
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
-  OnActivate = FormActivate
   OnClose = FormClose
   OnCreate = FormCreate
   OnDestroy = FormDestroy
@@ -31,9 +30,12 @@ object frmPBox: TfrmPBox
         MinHeight = 58
         Width = 1047
       end>
+    DoubleBuffered = True
     EdgeInner = esNone
     EdgeOuter = esNone
     FixedOrder = True
+    ParentDoubleBuffered = False
+    ExplicitWidth = 1045
     object tlbMenu: TToolBar
       Left = 2
       Top = 0
@@ -42,11 +44,13 @@ object frmPBox: TfrmPBox
       ButtonHeight = 38
       ButtonWidth = 43
       Caption = 'tlbMenu'
+      DoubleBuffered = True
       Font.Charset = GB2312_CHARSET
       Font.Color = clWindowText
       Font.Height = -14
       Font.Name = #23435#20307
       Font.Style = []
+      ParentDoubleBuffered = False
       ParentFont = False
       ShowCaptions = True
       TabOrder = 0
@@ -63,9 +67,8 @@ object frmPBox: TfrmPBox
     ParentDoubleBuffered = False
     Style = tsFlatButtons
     TabOrder = 1
-    ExplicitTop = 24
     ExplicitWidth = 1045
-    ExplicitHeight = 646
+    ExplicitHeight = 612
     object tsWelcome: TTabSheet
       Caption = 'tsWelcome'
       ImageIndex = 4
@@ -134,7 +137,6 @@ object frmPBox: TfrmPBox
         HeaderFont.Name = 'Tahoma'
         HeaderFont.Style = []
         TabOrder = 0
-        ExplicitHeight = 614
       end
     end
     object tsCenter: TTabSheet

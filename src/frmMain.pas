@@ -31,7 +31,6 @@ type
     mmMainMenu: TMainMenu;
     ilMainMenu: TImageList;
     ilPModule: TImageList;
-    procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure imgSubModuleCloseMouseEnter(Sender: TObject);
@@ -84,12 +83,8 @@ end;
 
 procedure TfrmPBox.FormCreate(Sender: TObject);
 begin
-  FbChangeUI := False;
   InitPageAll;
-end;
-
-procedure TfrmPBox.FormActivate(Sender: TObject);
-begin
+  FbChangeUI          := False;
   FLabellogin.Caption := string(FstrUserLoginName);
   TrayMenu            := pmTray;
   FlistModuleDll      := THashedStringList.Create;
@@ -135,7 +130,7 @@ begin
   { BUTTON UI }
   if GetCurrUIStyle = uiButton then
   begin
-    if Assigned(pnlModuleDialog) then
+    if Assigned(pnlModuleDialog) and (pnlModuleDialog.Visible) then
     begin
       pnlModuleDialog.Left := (pnlModuleDialog.Parent.Width - pnlModuleDialog.Width) div 2;
       if Assigned(Sender) then
