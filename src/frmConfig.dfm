@@ -4,8 +4,8 @@ object frmConfig: TfrmConfig
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = #37197#32622
-  ClientHeight = 486
-  ClientWidth = 820
+  ClientHeight = 484
+  ClientWidth = 812
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,8 +16,8 @@ object frmConfig: TfrmConfig
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   DesignSize = (
-    820
-    486)
+    812
+    484)
   TextHeight = 13
   object lbl2: TLabel
     Left = 8
@@ -60,7 +60,7 @@ object frmConfig: TfrmConfig
   end
   object btnDatabaseConfig: TSpeedButton
     Left = 8
-    Top = 442
+    Top = 440
     Width = 92
     Height = 36
     Anchors = [akLeft, akBottom]
@@ -151,8 +151,8 @@ object frmConfig: TfrmConfig
     end
   end
   object btnSave: TButton
-    Left = 703
-    Top = 442
+    Left = 687
+    Top = 440
     Width = 92
     Height = 36
     Anchors = [akRight, akBottom]
@@ -169,8 +169,8 @@ object frmConfig: TfrmConfig
     ExplicitTop = 445
   end
   object btnCancel: TButton
-    Left = 587
-    Top = 442
+    Left = 571
+    Top = 440
     Width = 92
     Height = 36
     Anchors = [akRight, akBottom]
@@ -210,7 +210,7 @@ object frmConfig: TfrmConfig
     Left = 352
     Top = 25
     Width = 467
-    Height = 404
+    Height = 402
     Anchors = [akLeft, akTop, akBottom]
     Color = clBtnFace
     Font.Charset = DEFAULT_CHARSET
@@ -225,7 +225,7 @@ object frmConfig: TfrmConfig
     ExplicitHeight = 422
     DesignSize = (
       467
-      404)
+      402)
     object imgPModuleIcon: TImage
       Left = 183
       Top = 114
@@ -278,7 +278,7 @@ object frmConfig: TfrmConfig
       Left = 20
       Top = 21
       Width = 149
-      Height = 366
+      Height = 364
       Anchors = [akLeft, akTop, akBottom]
       Font.Charset = GB2312_CHARSET
       Font.Color = clBlack
@@ -294,7 +294,7 @@ object frmConfig: TfrmConfig
       Left = 264
       Top = 21
       Width = 141
-      Height = 366
+      Height = 364
       Anchors = [akLeft, akTop, akBottom]
       Font.Charset = GB2312_CHARSET
       Font.Color = clBlack
@@ -344,7 +344,7 @@ object frmConfig: TfrmConfig
     end
     object btnSubModuleIcon: TButton
       Left = 409
-      Top = 69
+      Top = 67
       Width = 53
       Height = 25
       Hint = #36873#25321#22270#26631#65292#24517#39035#26159' 32'#215'32 '#30340' ico '#22270#29255
@@ -358,7 +358,7 @@ object frmConfig: TfrmConfig
     end
     object chkGray: TCheckBox
       Left = 414
-      Top = 256
+      Top = 254
       Width = 97
       Height = 17
       Anchors = [akRight, akBottom]
@@ -369,7 +369,7 @@ object frmConfig: TfrmConfig
     end
     object btnPModuleIcon: TButton
       Left = 174
-      Top = 69
+      Top = 67
       Width = 53
       Height = 25
       Hint = #36873#25321#22270#26631#65292#24517#39035#26159' 32'#215'32 '#30340' ico '#22270#29255
@@ -383,7 +383,7 @@ object frmConfig: TfrmConfig
     end
     object btnAddEXE: TButton
       Left = 409
-      Top = 362
+      Top = 360
       Width = 53
       Height = 25
       Hint = #24517#39035#26159' 32'#215'32 '#30340' bmp,ico,png '#22270#29255
