@@ -382,7 +382,7 @@ begin
       pnl.Expand
     else
       pnl.Collapse;
-    pnl.tag      := I;
+    pnl.tag := I;
   end;
 
   if ctgrypnlgrpModule.Panels.Count > 0 then
@@ -477,9 +477,13 @@ begin
     bChangeUI  := False;
   end;
 
-  FmmMain  := mmMain;
-  bMaxForm := Application.MainForm.WindowState = TWindowState.wsMaximized;
-  intRow   := Ifthen(bMaxForm, 5, 3);
+  FmmMain := mmMain;
+  if Application.MainForm = nil then
+    bMaxForm := False
+  else
+    bMaxForm := Application.MainForm.WindowState = TWindowState.wsMaximized;
+
+  intRow := Ifthen(bMaxForm, 5, 3);
   if FintBakRow = intRow then
     Exit;
 
