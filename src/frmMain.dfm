@@ -61,7 +61,7 @@ object frmPBox: TfrmPBox
     Top = 58
     Width = 1049
     Height = 613
-    ActivePage = tsWelcome
+    ActivePage = tsList
     Align = alClient
     DoubleBuffered = True
     ParentDoubleBuffered = False
@@ -130,6 +130,7 @@ object frmPBox: TfrmPBox
         Top = 0
         Height = 580
         VertScrollBar.Tracking = True
+        ChevronAlignment = taRightJustify
         Color = clWhite
         HeaderFont.Charset = DEFAULT_CHARSET
         HeaderFont.Color = clWindowText
@@ -137,6 +138,7 @@ object frmPBox: TfrmPBox
         HeaderFont.Name = 'Tahoma'
         HeaderFont.Style = []
         TabOrder = 0
+        ExplicitHeight = 579
       end
     end
     object tsCenter: TTabSheet

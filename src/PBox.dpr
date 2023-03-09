@@ -12,7 +12,8 @@ uses
   frmMain in 'frmMain.pas' {frmPBox},
   uBaseForm in 'uBaseForm.pas',
   uUICreate in 'uUICreate.pas',
-  uInitJava in 'uInitJava.pas';
+  uInitJava in 'uInitJava.pas',
+  Vcl.ExtCtrls in 'Vcl.ExtCtrls.pas';
 
 {$R *.res}
 

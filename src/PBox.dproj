@@ -152,6 +152,7 @@
         <DCCReference Include="uBaseForm.pas"/>
         <DCCReference Include="uUICreate.pas"/>
         <DCCReference Include="uInitJava.pas"/>
+        <DCCReference Include="Vcl.ExtCtrls.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -178,6 +179,12 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="4">
+                <DeployFile LocalName="..\bin\Win32\PBox.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>PBox.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="..\bin\Win32\PBox.exe" Configuration="Release" Class="ProjectOutput"/>
                 <DeployFile LocalName="..\bin\Win32\PBox.exe" Configuration="Release" Class="ProjectOutput">
                     <Platform Name="Win32">

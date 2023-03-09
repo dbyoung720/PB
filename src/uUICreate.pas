@@ -273,22 +273,8 @@ end;
 
 type
   TTempUIList = class(TObject)
-    class procedure CateModuleExpand(Sender: TObject);
     class procedure OnMenuItemClick(Sender: TObject);
   end;
-
-class procedure TTempUIList.CateModuleExpand(Sender: TObject);
-var
-  I: Integer;
-begin
-  for I := 0 to FctgrypnlgrpModule.Panels.Count - 1 do
-  begin
-    if TCategoryPanel(FctgrypnlgrpModule.Panels.Items[I]).tag <> TCategoryPanel(Sender).tag then
-    begin
-      TCategoryPanel(FctgrypnlgrpModule.Panels.Items[I]).Collapse;
-    end;
-  end;
-end;
 
 class procedure TTempUIList.OnMenuItemClick(Sender: TObject);
 var
@@ -397,7 +383,6 @@ begin
     else
       pnl.Collapse;
     pnl.tag      := I;
-    pnl.OnExpand := TTempUIList.CateModuleExpand;
   end;
 
   if ctgrypnlgrpModule.Panels.Count > 0 then

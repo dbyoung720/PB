@@ -15,6 +15,7 @@ bin/Win64/plugins/lng/obj
 /bin/Win64/plugins/EXE/cports/cports.cfg
 /bin/Win32/plugins/EXE/cports/IPNetInfo.cfg
 /bin/Win64/plugins/EXE/cports/IPNetInfo.cfg
+/src/Vcl.ExtCtrls.pas
 /modules/Vcl.Forms.pas
 /modules/Vcl.Graphics.pas
 /bin/Win32/plugins/EXE/uninstallview/UninstallView.cfg

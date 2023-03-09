@@ -1,0 +1,42 @@
+diff --git "a/E:\\PBox\\src\\Vcl.ExtCtrls.pas" "b/F:\\Green\\Language\\RS113\\source\\vcl\\Vcl.ExtCtrls.pas"
+index 4acad43..17e3dc3 100644
+--- "a/E:\\PBox\\src\\Vcl.ExtCtrls.pas"
++++ "b/F:\\Green\\Language\\RS113\\source\\vcl\\Vcl.ExtCtrls.pas"
+@@ -11578,34 +11578,23 @@ begin
+   end;
+ end;
+ 
+-var
+-  FCurrentSelectedCategoryPanel: TCustomCategoryPanel;
+-
+ procedure TCustomCategoryPanel.WMSetCursor(var Message: TWMSetCursor);
+ var
+   LMouseEvent: TTrackMouseEvent;
+-  I: Integer;
+ begin
+   if Message.HitTest = HTNOWHERE then
+     case Message.MouseMsg of
+       WM_LBUTTONUP:
+         begin
+           FHeaderState := hsHot;
+-          for I := 0 to FCurrentSelectedCategoryPanel.PanelGroup.Panels.Count-1 do
+-          begin
+-            if FCurrentSelectedCategoryPanel <> TCategoryPanel( FCurrentSelectedCategoryPanel.PanelGroup.Panels.Items[I]) then
+-             TCategoryPanel( FCurrentSelectedCategoryPanel.PanelGroup.Panels.Items[I]).Collapse;
+-          end;
+-
+-          if FCurrentSelectedCategoryPanel.FCollapsed then
+-            FCurrentSelectedCategoryPanel.Expand
++          if FCollapsed then
++            Expand
+           else
+-            FCurrentSelectedCategoryPanel.Collapse;
++            Collapse;
+           Exit;
+         end;
+       WM_LBUTTONDOWN:
+         begin
+-          FCurrentSelectedCategoryPanel := Self;
+           FHeaderState := hsPressed;
+           UpdateButtonState;
+           if TabStop then
