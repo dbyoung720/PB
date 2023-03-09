@@ -221,6 +221,7 @@ begin
   mmMainMenu.Items.Clear;
 end;
 
+{ 创建模块功能菜单 }
 procedure TfrmPBox.CreateMenu(const listDll: THashedStringList);
 var
   I             : Integer;
