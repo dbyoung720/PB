@@ -2,7 +2,7 @@ object frmVideo: TfrmVideo
   Left = 0
   Top = 0
   Caption = 'dbVideo 2.0'
-  ClientHeight = 666
+  ClientHeight = 616
   ClientWidth = 1085
   Color = clBtnFace
   Font.Charset = GB2312_CHARSET
@@ -15,7 +15,7 @@ object frmVideo: TfrmVideo
   OnDestroy = FormDestroy
   DesignSize = (
     1085
-    666)
+    616)
   TextHeight = 12
   object grpVideoList: TGroupBox
     Left = 8
@@ -39,21 +39,21 @@ object frmVideo: TfrmVideo
   object grpVideoFormat: TGroupBox
     Left = 299
     Top = 8
-    Width = 774
+    Width = 770
     Height = 53
     Anchors = [akLeft, akTop, akRight]
     Caption = #35270#39057#26684#24335#21015#34920#65306
     ParentShowHint = False
     ShowHint = False
     TabOrder = 1
-    ExplicitWidth = 770
+    ExplicitWidth = 766
     DesignSize = (
-      774
+      770
       53)
     object cbbVideoFormat: TComboBox
       Left = 12
       Top = 20
-      Width = 750
+      Width = 746
       Height = 22
       Style = csDropDownList
       Anchors = [akLeft, akTop, akRight]
@@ -65,14 +65,14 @@ object frmVideo: TfrmVideo
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      ExplicitWidth = 746
+      ExplicitWidth = 742
     end
   end
   object pnlVideoPreview: TPanel
     Left = 299
     Top = 72
-    Width = 774
-    Height = 586
+    Width = 770
+    Height = 536
     Anchors = [akLeft, akTop, akRight, akBottom]
     BevelOuter = bvNone
     Caption = 'pnlVideoPreview'
@@ -84,14 +84,14 @@ object frmVideo: TfrmVideo
     ParentDoubleBuffered = False
     ShowCaption = False
     TabOrder = 2
-    ExplicitWidth = 770
+    ExplicitWidth = 766
     ExplicitHeight = 585
   end
   object grpFunc: TGroupBox
     Left = 8
     Top = 72
     Width = 285
-    Height = 586
+    Height = 536
     Anchors = [akLeft, akTop, akBottom]
     Ctl3D = True
     Font.Charset = GB2312_CHARSET
@@ -105,7 +105,7 @@ object frmVideo: TfrmVideo
     ExplicitHeight = 585
     DesignSize = (
       285
-      586)
+      536)
     object lblHardAccel: TLabel
       Left = 12
       Top = 202
@@ -177,10 +177,10 @@ object frmVideo: TfrmVideo
     end
     object pnlSnap: TPanel
       Left = 12
-      Top = 368
+      Top = 360
       Width = 261
-      Height = 209
-      Anchors = [akLeft, akBottom]
+      Height = 167
+      Anchors = [akTop, akBottom]
       BevelKind = bkFlat
       BevelOuter = bvNone
       Caption = 'pnlSnap'
@@ -190,7 +190,6 @@ object frmVideo: TfrmVideo
       ParentCtl3D = False
       ShowCaption = False
       TabOrder = 4
-      ExplicitTop = 367
     end
     object btnVideoAttr: TButton
       Left = 157
