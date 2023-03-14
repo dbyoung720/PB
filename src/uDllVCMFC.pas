@@ -23,7 +23,7 @@ var
   FstrVCMFCDllClassName  : String = '';
   FstrVCMFCDllWindowName : String = '';
   FstrBakVCMFCDllFileName: String = '';
-  FstrNewVCDLGDllFileName: String = '';
+  FstrNewVCMFCDllFileName: String = '';
   FhVCMFCDllModule       : HMODULE;
   FhVCMFCDLLForm         : THandle;
   FLangStyle             : TLangStyle;
@@ -66,12 +66,12 @@ begin
   end;
 end;
 
-procedure FindVCMFCDLLFormEnd(hWnd: hWnd; uMsg, idEvent: UINT; dwTime: DWORD); stdcall;
+procedure ShowNewVCMFCDllForm(hWnd: hWnd; uMsg, idEvent: UINT; dwTime: DWORD); stdcall;
 begin
   if FhVCMFCDllModule = 0 then
   begin
     KillTimer(Application.MainForm.Handle, c_intVCMFCDllFormEndTimerID);
-    ShowVCMFCDllForm(FstrNewVCDLGDllFileName, FTabDllForm);
+    ShowVCMFCDllForm(FstrNewVCMFCDllFileName, FTabDllForm);
   end;
 end;
 
@@ -112,12 +112,12 @@ var
   strParamModuleName, strModuleName: PAnsiChar;
   strClassName, strWindowName      : PAnsiChar;
 begin
-  { 等待先前的 VC MFC DLL Form 模态窗体销毁完成，才能进行新的 DLL 创建 }
+  { 等待先前的 VC MFC DLL Form 非模态窗体销毁完成，才能进行新的 DLL 创建 }
   if FhVCMFCDllModule <> 0 then
   begin
-    FstrNewVCDLGDllFileName := strFileName;
+    FstrNewVCMFCDllFileName := strFileName;
     FTabDllForm             := tsDll;
-    SetTimer(Application.MainForm.Handle, c_intVCMFCDllFormEndTimerID, 200, @FindVCMFCDLLFormEnd);
+    SetTimer(Application.MainForm.Handle, c_intVCMFCDllFormEndTimerID, 200, @ShowNewVCMFCDllForm);
     Exit;
   end;
 
