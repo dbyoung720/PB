@@ -63,12 +63,12 @@ begin
   FfrmDelphiDll.Color       := clWhite;
   FfrmDelphiDll.Tag         := hDllMod;
   FfrmDelphiDll.Anchors     := [akLeft, akTop, akRight, akBottom];
+  RemoveMenu(GetSystemMenu(FfrmDelphiDll.Handle, False), 0, MF_BYPOSITION);                                             // 删除还原菜单
   RemoveMenu(GetSystemMenu(FfrmDelphiDll.Handle, False), 0, MF_BYPOSITION);                                             // 删除移动菜单
   RemoveMenu(GetSystemMenu(FfrmDelphiDll.Handle, False), 0, MF_BYPOSITION);                                             // 删除大小菜单
   RemoveMenu(GetSystemMenu(FfrmDelphiDll.Handle, False), 0, MF_BYPOSITION);                                             // 删除最小化菜单
   RemoveMenu(GetSystemMenu(FfrmDelphiDll.Handle, False), 0, MF_BYPOSITION);                                             // 删除最大化菜单
   RemoveMenu(GetSystemMenu(FfrmDelphiDll.Handle, False), 0, MF_BYPOSITION);                                             // 删除分割线菜单
-  RemoveMenu(GetSystemMenu(FfrmDelphiDll.Handle, False), 0, MF_BYPOSITION);                                             // 删除移动菜单
   RemoveCaption(FfrmDelphiDll.Handle);                                                                                  // 去除标题栏
   SetWindowPos(FfrmDelphiDll.Handle, TabDll.Handle, 0, 0, TabDll.Width, TabDll.Height, SWP_NOZORDER OR SWP_NOACTIVATE); // 最大化 Dll 子窗体
   Winapi.Windows.SetParent(FfrmDelphiDll.Handle, TabDll.Handle);                                                        // 设置父窗体为 TabSheet
