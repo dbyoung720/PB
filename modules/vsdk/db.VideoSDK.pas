@@ -42,13 +42,21 @@ uses Winapi.Windows, System.SysUtils;
 var
   FhDll: HMODULE;
 
+const
+  LOAD_LIBRARY_SEARCH_USER_DIRS = $00001000;
+
+function AddDllDirectory(strDllPath: PChar):BOOL;stdcall;external kernel32;
+
 procedure InitVideoSDK;
 var
-  strPath: String;
+  strFFMPEGSDKPath: String;
+  strOPENCVSDKPath: String;
 begin
-  strPath := ExtractFilePath(Paramstr(0)) + 'plugins\sdk\ffmpeg\bin';
-  SetDllDirectory(PChar(strPath));
-  FhDll := LoadLibrary(PChar('dbVideo.dll'));
+  strFFMPEGSDKPath := ExtractFilePath(Paramstr(0)) + 'plugins\sdk\ffmpeg\bin';
+  strOPENCVSDKPath := ExtractFilePath(Paramstr(0)) + 'plugins\sdk\opencv\4.6.0\bin';
+  AddDllDirectory(PChar(strFFMPEGSDKPath));
+  AddDllDirectory(PChar(strOPENCVSDKPath));
+  FhDll := LoadLibraryEx(PChar('dbVideo.dll'), 0, LOAD_LIBRARY_SEARCH_USER_DIRS);
 
   dbVideo_Init                 := GetProcAddress(FhDll, 'dbVideo_Init');
   dbVideo_Free                 := GetProcAddress(FhDll, 'dbVideo_Free');
