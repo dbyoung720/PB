@@ -30,3 +30,16 @@ bin/Win64/plugins/lng/obj
 /bin/Win64/plugins/EXE/HeidiSQL/Snippets
 /bin/Win64/plugins/SDK/OpenCV/4.6.0/bin/opencv_cudaarithm460.dll
 /bin/Win64/plugins/SDK/OpenCV/4.6.0/bin/opencv_cudafilters460.dll
+/bin/Win64/plugins/SDK/OpenCV/4.6.0/bin/nppitc64_11.dll
+/bin/Win64/plugins/SDK/OpenCV/4.6.0/bin/cublas64_11.dll
+/bin/Win64/plugins/SDK/OpenCV/4.6.0/bin/cublasLt64_11.dll
+/bin/Win64/plugins/SDK/OpenCV/4.6.0/bin/cudnn64_8.dll
+/bin/Win64/plugins/SDK/OpenCV/4.6.0/bin/cufft64_10.dll
+/bin/Win64/plugins/SDK/OpenCV/4.6.0/bin/nppc64_11.dll
+/bin/Win64/plugins/SDK/OpenCV/4.6.0/bin/nppial64_11.dll
+/bin/Win64/plugins/SDK/OpenCV/4.6.0/bin/nppicc64_11.dll
+/bin/Win64/plugins/SDK/OpenCV/4.6.0/bin/nppidei64_11.dll
+/bin/Win64/plugins/SDK/OpenCV/4.6.0/bin/nppif64_11.dll
+/bin/Win64/plugins/SDK/OpenCV/4.6.0/bin/nppig64_11.dll
+/bin/Win64/plugins/SDK/OpenCV/4.6.0/bin/nppim64_11.dll
+/bin/Win64/plugins/SDK/OpenCV/4.6.0/bin/nppist64_11.dll
