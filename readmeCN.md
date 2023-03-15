@@ -89,5 +89,6 @@ extern "C" __declspec(dllexport) void db_ShowDllForm_Plugins(TLangStyle* lsFileT
     
 ## 八：注意事项：
    1、如果运行 PBox(x64) 下面的 JavaCV、dbVideo 模块，需要先解压 "plugins\SDK\OpenCV\4.6.0\bin\CUDA.7z" 到当前目录；
-   2、因为初始化Java VM，在 Delphi IDE 中，会报异常：c0000005 ACCESS_VIOLATION，选择 "Ignore this exception type"，下次就不会提示了；
+   2、OpenCV(x64) 是基于 CUDA SDK 编译的。如果你的机器上没有 NVIDIA 显卡，是无法运行 JavaCV、dbVideo x64 模块的；
+   3、因为初始化Java VM，在 Delphi IDE 中，会报异常：c0000005 ACCESS_VIOLATION，选择 "Ignore this exception type"，下次就不会提示了；
 
