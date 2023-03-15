@@ -85,7 +85,7 @@ object frmVideo: TfrmVideo
     ShowCaption = False
     TabOrder = 2
     ExplicitWidth = 766
-    ExplicitHeight = 585
+    ExplicitHeight = 535
   end
   object grpFunc: TGroupBox
     Left = 8
@@ -102,7 +102,7 @@ object frmVideo: TfrmVideo
     ParentCtl3D = False
     ParentFont = False
     TabOrder = 3
-    ExplicitHeight = 585
+    ExplicitHeight = 535
     DesignSize = (
       285
       536)
@@ -190,6 +190,7 @@ object frmVideo: TfrmVideo
       ParentCtl3D = False
       ShowCaption = False
       TabOrder = 4
+      ExplicitHeight = 166
     end
     object btnVideoAttr: TButton
       Left = 157

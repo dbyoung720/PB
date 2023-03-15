@@ -66,7 +66,7 @@ procedure db_ShowDllForm_Plugins(var frm: TFormClass; var strParentModuleName, s
 begin
   frm                     := TfrmVideo;
   strParentModuleName     := '多媒体工具';
-  strSubModuleName        := 'dbVideo';
+  strSubModuleName        := 'dbVideo (Delphi)';
   Application.Handle      := GetMainFormApplication.Handle;
   Application.Icon.Handle := GetDllModuleIconHandle(String(strParentModuleName), string(strSubModuleName));
 end;

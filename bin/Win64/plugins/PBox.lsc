@@ -21,4 +21,4 @@ HelloJava.dll=程序员工具;Delphi Call Java;;;4;0
 cmake.dll=程序员工具;CMake-GUI(DLL);Qt5152QWindowIcon;CMakeSetup;2;3
 plugins\EXE\vlc\vlc.exe=多媒体工具;VLC;Qt5QWindowIcon;VLC media player;20;4
 mpc-be.dll=多媒体工具;MPC-BE(DLL);MPC-BE;MPC-BE;7;2
-vsdk.dll=多媒体工具;dbVideo;;;13;0
+vsdk.dll=多媒体工具;dbVideo (Delphi);;;13;0
