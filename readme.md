@@ -89,6 +89,5 @@ extern "C" __declspec(dllexport) void db_ShowDllForm_Plugins(TLangStyle* lsFileT
     Add database support (because I am not familiar with the database, the development is slow, and it is developed in my spare time)  
 
 ## VIII. Notice:  
-    1. If you run the JavaCV module under PBox (x64), you need to install the CUDA11 SDK and add the BIN directory of the CUDA11 SDK to the system search path;
-    2. opencv_cudaarithm460.dll¡¢opencv_cudafilters460.dll exceeds 100M and is compressed and saved, so decompress it first and run JavaCV(x64);
-    3. because init Java VM, Delphi IDE raise: c0000005 ACCESS_VIOLATION. you can "Ignore this exception type", next time is not tips;
+    1. If you run the JavaCV¡¢dbVideo module under PBox (x64), you need to unzip "plugins\SDK\OpenCV\4.6.0\bin\CUDA.7z" to current directory;
+    2. because init Java VM, Delphi IDE raise: c0000005 ACCESS_VIOLATION. you can "Ignore this exception type", next time is not tips;
