@@ -87,7 +87,7 @@ begin
   btnDXGI.Enabled          := Win32MajorVersion > 6;
   FcvsGDIWindow            := TCanvas.Create;
   FcvsGDIWindow.Handle     := GetDC(0);
-  btnCaptureScreen.Enabled := FileExists(GetDllFilePath + '\ffmpeg\bin\ffmpeg.exe');
+  btnCaptureScreen.Enabled := FileExists(ExtractFilePath(ParamStr(0)) + 'plugins\sdk\ffmpeg\bin\ffmpeg.exe');
 end;
 
 procedure TfrmSnapScreen.FormClose(Sender: TObject; var Action: TCloseAction);

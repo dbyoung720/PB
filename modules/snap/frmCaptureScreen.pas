@@ -88,7 +88,7 @@ begin
 
   { MP4 ×ª»»Îª GIF }
   if cbbVideoType.ItemIndex = 1 then
-    WinExec(PAnsiChar(AnsiString(Format(c_strMP4ToGIF, [GetDllFilePath + 'ffmpeg\bin', FstrMP4FileName, ChangeFileExt(FstrMP4FileName, '.GIF')]))), SW_HIDE);
+    WinExec(PAnsiChar(AnsiString(Format(c_strMP4ToGIF, [ExtractFilePath(ParamStr(0)) + 'plugins\sdk\ffmpeg\bin', FstrMP4FileName, ChangeFileExt(FstrMP4FileName, '.GIF')]))), SW_HIDE);
 
   { ½áÊø }
   Close;
@@ -117,7 +117,7 @@ begin
   srchbx1.Enabled      := False;
 
   FstrMP4FileName         := Format('%s%sCapture%s.mp4', [srchbx1.Text, IfThen(RightStr(srchbx1.Text, 1) = '\', '', '\'), FormatDateTime('yyyyMMddhhssmm', Now)]);
-  FDOSCommand.CommandLine := Format(c_strCaptonScreen, [GetDllFilePath + 'ffmpeg\bin', edtLeft.Text, edtTop.Text, edtWidth.Text, edtHeight.Text, FstrMP4FileName]);
+  FDOSCommand.CommandLine := Format(c_strCaptonScreen, [ExtractFilePath(ParamStr(0)) + 'plugins\sdk\ffmpeg\bin', edtLeft.Text, edtTop.Text, edtWidth.Text, edtHeight.Text, FstrMP4FileName]);
   FDOSCommand.Execute;
 end;
 
