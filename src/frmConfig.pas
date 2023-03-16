@@ -186,7 +186,23 @@ begin
 end;
 
 procedure TfrmConfig.btnCancelClick(Sender: TObject);
+var
+  strTemp:String;
 begin
+  if FmemIni.ReadBool(c_strIniUISection, 'LoadSpeed', False) then
+  begin
+    strTemp := GetLoadSpeedFileName_Config;
+    FlstModuleAll.SaveToFile(strTemp);
+
+    strTemp := GetLoadSpeedFileName_icolst;
+    TImageListEx(FilMainMenu).SaveToFile(GetLoadSpeedFileName_icolst);
+  end
+  else
+  begin
+    DeleteFile(GetLoadSpeedFileName_Config);
+    DeleteFile(GetLoadSpeedFileName_icolst);
+  end;
+
   Close;
 end;
 
@@ -227,7 +243,6 @@ var
   I             : Integer;
   strPModuleName: String;
 begin
-  chkLoadSpeed.Enabled       := False;
   edtTitle.Text              := FmemIni.ReadString(c_strIniUISection, 'Title', c_strTitle);
   chkTopForm.Checked         := FmemIni.ReadBool(c_strIniUISection, 'OnTop', False);
   chkFullScreen.Checked      := FmemIni.ReadBool(c_strIniUISection, 'MAXSIZE', False);
@@ -237,7 +252,6 @@ begin
   chkLoadSpeed.Checked       := FmemIni.ReadBool(c_strIniUISection, 'LoadSpeed', False);
   rgShowStyle.ItemIndex      := FmemIni.ReadInteger(c_strIniUISection, 'ShowStyle', 0);
   chkShowCloseButton.Checked := FmemIni.ReadBool(c_strIniUISection, 'ShowCloseButton', True);
-  chkLoadSpeed.Enabled       := True;
 
   { Ä£¿éÁÐ±í }
   for I := 0 to FlstModuleAll.Count - 1 do
@@ -531,7 +545,7 @@ procedure TfrmConfig.chkLoadSpeedClick(Sender: TObject);
 var
   strTemp: String;
 begin
-  if FbCreate then
+  if FbCreate and chkLoadSpeed.Checked then
   begin
     FbCreate := False;
     Exit;

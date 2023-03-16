@@ -151,7 +151,7 @@ object frmConfig: TfrmConfig
     end
   end
   object btnSave: TButton
-    Left = 727
+    Left = 723
     Top = 447
     Width = 92
     Height = 36
@@ -167,7 +167,7 @@ object frmConfig: TfrmConfig
     OnClick = btnSaveClick
   end
   object btnCancel: TButton
-    Left = 611
+    Left = 607
     Top = 447
     Width = 92
     Height = 36
@@ -218,7 +218,6 @@ object frmConfig: TfrmConfig
     ParentColor = False
     ParentFont = False
     TabOrder = 4
-    ExplicitHeight = 402
     DesignSize = (
       467
       409)
@@ -285,7 +284,6 @@ object frmConfig: TfrmConfig
       ParentFont = False
       TabOrder = 0
       OnClick = lstParentModuleClick
-      ExplicitHeight = 364
     end
     object lstSubModule: TListBox
       Left = 264
@@ -302,7 +300,6 @@ object frmConfig: TfrmConfig
       ParentFont = False
       TabOrder = 1
       OnClick = lstSubModuleClick
-      ExplicitHeight = 364
     end
     object btnParentUp: TButton
       Left = 174
@@ -352,7 +349,6 @@ object frmConfig: TfrmConfig
       ShowHint = True
       TabOrder = 6
       OnClick = imgSModuleIconClick
-      ExplicitTop = 67
     end
     object chkGray: TCheckBox
       Left = 414
@@ -363,7 +359,6 @@ object frmConfig: TfrmConfig
       Caption = #38544#34255
       TabOrder = 7
       Visible = False
-      ExplicitTop = 254
     end
     object btnPModuleIcon: TButton
       Left = 174
@@ -377,7 +372,6 @@ object frmConfig: TfrmConfig
       ShowHint = True
       TabOrder = 8
       OnClick = imgPModuleIconClick
-      ExplicitTop = 67
     end
     object btnAddEXE: TButton
       Left = 409
@@ -391,7 +385,6 @@ object frmConfig: TfrmConfig
       ShowHint = True
       TabOrder = 9
       OnClick = btnAddEXEClick
-      ExplicitTop = 360
     end
   end
   object chkShowCloseButton: TCheckBox
