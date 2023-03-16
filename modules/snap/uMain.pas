@@ -1,4 +1,5 @@
 unit uMain;
+{ 注意：运行本程序，需要安装 MS DirectX Redist }
 
 interface
 

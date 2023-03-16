@@ -11,14 +11,12 @@ object frmSnapScreen: TfrmSnapScreen
   Font.Name = 'Tahoma'
   Font.Style = []
   KeyPreview = True
-  OldCreateOrder = True
   Position = poScreenCenter
   OnClose = FormClose
   OnCreate = FormCreate
   DesignSize = (
     981
     576)
-  PixelsPerInch = 96
   TextHeight = 13
   object btnGDI: TButton
     Left = 8
@@ -52,6 +50,8 @@ object frmSnapScreen: TfrmSnapScreen
     Color = clGray
     ParentColor = False
     TabOrder = 2
+    ExplicitWidth = 961
+    ExplicitHeight = 507
     object imgSnap: TImage
       Left = 0
       Top = 0
@@ -78,6 +78,7 @@ object frmSnapScreen: TfrmSnapScreen
     Caption = #22270#20687#20445#23384
     TabOrder = 4
     OnClick = btnSaveFileClick
+    ExplicitLeft = 818
   end
   object btnCaptureScreen: TButton
     Left = 479
