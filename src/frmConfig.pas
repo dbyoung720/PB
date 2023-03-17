@@ -58,7 +58,6 @@ type
     procedure rgShowStyleClick(Sender: TObject);
     procedure chkLoadSpeedClick(Sender: TObject);
   private
-    FbCreate     : Boolean;
     FmemIni      : TMemIniFile;
     FlstModuleAll: THashedStringList;
     FilMainMenu  : TImageList;
@@ -84,14 +83,19 @@ const
   c_strIniUISection     = 'UI';
   c_strIniModuleSection = 'Module';
 
+type
+  TMyCheckBox = class(TCheckBox)
+
+  end;
+
 function ShowConfigForm(var lstModuleAll: THashedStringList; const ilMainMenu: TImageList): Boolean;
 begin
   with TfrmConfig.Create(nil) do
   begin
-    FbCreate      := True;
-    FbResult      := False;
-    FlstModuleAll := lstModuleAll;
-    FilMainMenu   := ilMainMenu;
+    FbResult                                 := False;
+    FlstModuleAll                            := lstModuleAll;
+    FilMainMenu                              := ilMainMenu;
+    TMyCheckBox(chkLoadSpeed).ClicksDisabled := True;
     ReadConfigFillUI;
     Position := poScreenCenter;
     ShowModal;
@@ -187,7 +191,7 @@ end;
 
 procedure TfrmConfig.btnCancelClick(Sender: TObject);
 var
-  strTemp:String;
+  strTemp: String;
 begin
   if FmemIni.ReadBool(c_strIniUISection, 'LoadSpeed', False) then
   begin
@@ -545,12 +549,6 @@ procedure TfrmConfig.chkLoadSpeedClick(Sender: TObject);
 var
   strTemp: String;
 begin
-  if FbCreate and chkLoadSpeed.Checked then
-  begin
-    FbCreate := False;
-    Exit;
-  end;
-
   if chkLoadSpeed.Checked then
   begin
     strTemp := GetLoadSpeedFileName_Config;
