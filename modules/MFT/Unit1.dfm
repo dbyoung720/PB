@@ -10,14 +10,12 @@ object frmMFT: TfrmMFT
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
-  OldCreateOrder = True
   Position = poScreenCenter
   OnDestroy = FormDestroy
   OnResize = FormResize
   DesignSize = (
     1122
     686)
-  PixelsPerInch = 96
   TextHeight = 13
   object lvFiles: TListView
     Left = 8
@@ -51,6 +49,8 @@ object frmMFT: TfrmMFT
     TabOrder = 0
     ViewStyle = vsReport
     OnData = lvFilesData
+    ExplicitWidth = 1102
+    ExplicitHeight = 540
   end
   object mmoLog: TMemo
     Left = 8
@@ -67,6 +67,8 @@ object frmMFT: TfrmMFT
     ReadOnly = True
     ScrollBars = ssVertical
     TabOrder = 1
+    ExplicitTop = 559
+    ExplicitWidth = 1102
   end
   object tmr1: TTimer
     Interval = 500

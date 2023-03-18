@@ -11,12 +11,12 @@ object frmHZPY: TfrmHZPY
   Font.Name = 'Tahoma'
   Font.Style = []
   Menu = MainMenu1
-  OldCreateOrder = False
   Position = poScreenCenter
+  OnActivate = FormActivate
+  OnDestroy = FormDestroy
   DesignSize = (
     1045
     567)
-  PixelsPerInch = 96
   TextHeight = 13
   object Label4: TLabel
     Left = 8
@@ -59,6 +59,7 @@ object frmHZPY: TfrmHZPY
     ReadOnly = True
     ScrollBars = ssBoth
     TabOrder = 0
+    ExplicitHeight = 528
   end
   object Memo2: TMemo
     Left = 528
@@ -75,6 +76,8 @@ object frmHZPY: TfrmHZPY
     ReadOnly = True
     ScrollBars = ssBoth
     TabOrder = 1
+    ExplicitWidth = 509
+    ExplicitHeight = 528
   end
   object MainMenu1: TMainMenu
     AutoHotkeys = maManual

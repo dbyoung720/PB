@@ -3,8 +3,8 @@ unit Unit1;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.IniFiles, System.SysUtils, System.StrUtils, System.Types, System.Classes, System.IOUtils, Vcl.Controls, Vcl.Forms, Vcl.ComCtrls, Vcl.StdCtrls,
-  Unit2, Unit3, uCommon, Vcl.ExtCtrls;
+  Winapi.Windows, Winapi.Messages, System.IniFiles, System.SysUtils, System.StrUtils, System.Types, System.Classes, System.IOUtils, Vcl.Controls, Vcl.Forms, Vcl.ComCtrls, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Unit2, Unit3, uScrollBar, uCommon;
 
 type
   TfrmMFT = class(TForm)
@@ -16,6 +16,7 @@ type
     procedure FormResize(Sender: TObject);
     procedure tmr1Timer(Sender: TObject);
   private
+    FSBMM, FSBLV       : TFMScrollbar;
     FintThreadCount    : Integer;
     FlstFiles          : array of TList;
     FLogicalDriveHandle: THashedStringList;
@@ -51,6 +52,11 @@ procedure TfrmMFT.tmr1Timer(Sender: TObject);
 begin
   tmr1.Enabled    := False;
   FintThreadCount := 0;
+  FSBLV           := TFMScrollbar.Create(nil);
+  FSBMM           := TFMScrollbar.Create(nil);
+  FSBLV.InitScrollBar(lvFiles);
+  FSBMM.InitScrollBar(mmoLog);
+
   SearchMFT;
 end;
 
@@ -94,6 +100,8 @@ end;
 
 procedure TfrmMFT.FormDestroy(Sender: TObject);
 begin
+  FSBMM.Free;
+  FSBLV.Free;
   lvFiles.Items.Count := 0;     // 停止界面绘制
   lvFiles.OwnerData   := False; // 停止界面绘制
   FreeDriveList;                // 销毁驱动器列表

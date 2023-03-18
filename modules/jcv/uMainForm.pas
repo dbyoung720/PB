@@ -3,7 +3,7 @@
 
 interface
 
-uses Winapi.Windows, System.SysUtils, System.Variants, System.Classes, System.Types, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, System.Diagnostics, JNI, JNIUtils, uCommon;
+uses Winapi.Windows, System.SysUtils, System.Variants, System.Classes, System.Types, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, System.Diagnostics, JNI, JNIUtils, uScrollBar, uCommon;
 
 type
   TfrmOpenCV = class(TForm)
@@ -12,7 +12,9 @@ type
     spl1: TSplitter;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
   private
+    FSB  : TFMScrollBar;
     FjEnv: TJNIEnv;
     { 获取 OpenCV 编译信息 }
     procedure OpenCV_getBuildInformation;
@@ -45,8 +47,15 @@ function GetJavaVM: TJavaVM; stdcall; external 'PBox.exe';
 
 procedure TfrmOpenCV.FormDestroy(Sender: TObject);
 begin
+  FSB.Free;
   if FjEnv <> nil then
     FjEnv.Free;
+end;
+
+procedure TfrmOpenCV.FormActivate(Sender: TObject);
+begin
+  FSB := TFMScrollBar.Create(nil);
+  FSB.InitScrollbar(mmoLOG);
 end;
 
 procedure TfrmOpenCV.FormCreate(Sender: TObject);
@@ -56,7 +65,6 @@ var
 begin
   jVM   := GetJavaVM;
   FjEnv := TJNIEnv.Create(jVM.Env);
-
   { 获取 OpenCV 编译信息 }
   OpenCV_getBuildInformation;
 

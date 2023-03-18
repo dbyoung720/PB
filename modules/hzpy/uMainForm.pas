@@ -3,7 +3,7 @@ unit uMainForm;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, Menus, uCommon;
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, Menus, uScrollBar, uCommon;
 
 type
   TfrmHZPY = class(TForm)
@@ -21,8 +21,10 @@ type
     procedure mnuFileOpenClick(Sender: TObject);
     procedure mnuPYHZClick(Sender: TObject);
     procedure mnuPYHeadClick(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
-    { Private declarations }
+    FSBMMO1, FSBMMO2: TFMScrollBar;
   public
     { Public declarations }
   end;
@@ -42,6 +44,20 @@ begin
   strSubModuleName        := 'ºº×Ö±ê×¢Æ´Òô';
   Application.Handle      := GetMainFormApplication.Handle;
   Application.Icon.Handle := GetDllModuleIconHandle(String(strParentModuleName), string(strSubModuleName));
+end;
+
+procedure TfrmHZPY.FormActivate(Sender: TObject);
+begin
+  FSBMMO1 := TFMScrollBar.Create(nil);
+  FSBMMO1.InitScrollbar(Memo1);
+  FSBMMO2 := TFMScrollBar.Create(nil);
+  FSBMMO2.InitScrollbar(Memo2);
+end;
+
+procedure TfrmHZPY.FormDestroy(Sender: TObject);
+begin
+  FSBMMO1.Free;
+  FSBMMO2.Free;
 end;
 
 procedure TfrmHZPY.mnuFileOpenClick(Sender: TObject);

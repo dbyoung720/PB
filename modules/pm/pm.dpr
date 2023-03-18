@@ -7,8 +7,7 @@ library pm;
 uses
   System.SysUtils,
   System.Classes,
-  uProcessManager in 'uProcessManager.pas' {frmProcessManager},
-  uCommon in '..\uCommon.pas';
+  uProcessManager in 'uProcessManager.pas' {frmProcessManager};
 
 {$R *.res}
 

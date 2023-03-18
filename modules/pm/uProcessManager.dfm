@@ -10,7 +10,9 @@ object frmProcessManager: TfrmProcessManager
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  OnActivate = FormActivate
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnResize = FormResize
   DesignSize = (
     1170
@@ -64,8 +66,8 @@ object frmProcessManager: TfrmProcessManager
     ViewStyle = vsReport
     OnClick = lvProcessClick
     OnColumnClick = lvProcessColumnClick
-    ExplicitWidth = 1158
-    ExplicitHeight = 401
+    ExplicitWidth = 1146
+    ExplicitHeight = 399
   end
   object lvModule: TListView
     Left = 8
@@ -120,8 +122,8 @@ object frmProcessManager: TfrmProcessManager
     TabOrder = 1
     ViewStyle = vsReport
     OnColumnClick = lvProcessColumnClick
-    ExplicitTop = 442
-    ExplicitWidth = 1158
+    ExplicitTop = 440
+    ExplicitWidth = 1146
   end
   object edtParam: TEdit
     Left = 8
@@ -131,8 +133,8 @@ object frmProcessManager: TfrmProcessManager
     Anchors = [akLeft, akRight, akBottom]
     ReadOnly = True
     TabOrder = 2
-    ExplicitTop = 415
-    ExplicitWidth = 1158
+    ExplicitTop = 413
+    ExplicitWidth = 1146
   end
   object pmProcess: TPopupMenu
     AutoHotkeys = maManual

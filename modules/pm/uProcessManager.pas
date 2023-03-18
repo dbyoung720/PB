@@ -6,7 +6,7 @@ interface
 uses
   Winapi.Windows, Winapi.ShlObj, Winapi.ShellAPI, Winapi.ActiveX, Winapi.TlHelp32, Winapi.PsAPI, System.SysUtils, System.Classes, System.IniFiles, System.Math, System.StrUtils,
   Vcl.Clipbrd, Vcl.FileCtrl, Vcl.Controls, Vcl.Forms, Vcl.ComCtrls, Vcl.Menus, Vcl.StdCtrls, Vcl.Dialogs, Vcl.Graphics,
-  uProcessAPI, uCommon;
+  uProcessAPI, uScrollBar, uCommon;
 
 type
   TfrmProcessManager = class(TForm)
@@ -61,7 +61,10 @@ type
     procedure mniProcessDumpClick(Sender: TObject);
     procedure mniFileAttrClick(Sender: TObject);
     procedure mniOpenModuleFileAttiClick(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
+    FSBLV1, FSBLV2: TFMScrollBar;
     procedure EnumProcess(lv: TListView);
     procedure EnumProcessModules(const intPID: Cardinal; lv: TListView);
     function GetFileVersion(const strExeName: string): String;
@@ -274,9 +277,23 @@ begin
   end;
 end;
 
+procedure TfrmProcessManager.FormActivate(Sender: TObject);
+begin
+  FSBLV1 := TFMScrollBar.Create(nil);
+  FSBLV1.InitScrollbar(lvProcess);
+  FSBLV2 := TFMScrollBar.Create(nil);
+  FSBLV2.InitScrollbar(lvModule);
+end;
+
 procedure TfrmProcessManager.FormCreate(Sender: TObject);
 begin
   EnumProcess(lvProcess);
+end;
+
+procedure TfrmProcessManager.FormDestroy(Sender: TObject);
+begin
+  FSBLV1.Free;
+  FSBLV2.Free;
 end;
 
 procedure TfrmProcessManager.FormResize(Sender: TObject);
@@ -774,63 +791,63 @@ begin
 end;
 
 procedure TfrmProcessManager.SaveModuleInfoToExcel(const strSaveFileName: String; const bSelected: Boolean);
-//var
-//  XLS : TXLSReadWriteII5;
-//  I, J: Integer;
-//  procedure AddToList;
-//  var
-//    I: Integer;
-//  begin
-//    for I := 0 to lvModule.Columns.Count - 1 do
-//    begin
-//      if I = 0 then
-//        XLS.Sheets[0].AsString[I + 1, J + 2] := lvModule.Items[J].Caption
-//      else
-//        XLS.Sheets[0].AsString[I + 1, J + 2] := lvModule.Items[J].SubItems[I - 1];
+// var
+// XLS : TXLSReadWriteII5;
+// I, J: Integer;
+// procedure AddToList;
+// var
+// I: Integer;
+// begin
+// for I := 0 to lvModule.Columns.Count - 1 do
+// begin
+// if I = 0 then
+// XLS.Sheets[0].AsString[I + 1, J + 2] := lvModule.Items[J].Caption
+// else
+// XLS.Sheets[0].AsString[I + 1, J + 2] := lvModule.Items[J].SubItems[I - 1];
 //
-//      XLS.Sheets[0].Cell[I + 1, J + 2].HorizAlignment := chaCenter;
-//      XLS.Sheets[0].Cell[I + 1, J + 2].VertAlignment  := cvaCenter;
-//    end;
-//  end;
+// XLS.Sheets[0].Cell[I + 1, J + 2].HorizAlignment := chaCenter;
+// XLS.Sheets[0].Cell[I + 1, J + 2].VertAlignment  := cvaCenter;
+// end;
+// end;
 //
 begin
-//  XLS := TXLSReadWriteII5.Create(nil);
-//  try
-//    XLS.FileName := strSaveFileName;
-//
-//    for I := 1 to lvModule.Columns.Count do
-//    begin
-//      for J := 1 to lvModule.Items.Count + 1 do
-//      begin
-//        XLS.Sheets[0].Range.Items[I, J, I, J].BorderOutlineStyle := cbsThin;
-//        XLS.Sheets[0].Range.Items[I, J, I, J].BorderOutlineColor := 0;
-//      end;
-//    end;
-//
-//    for I := 1 to lvModule.Columns.Count do
-//    begin
-//      Application.ProcessMessages;
-//      XLS.Sheets[0].AsString[I, 1]                  := lvModule.Column[I - 1].Caption;
-//      XLS.Sheets[0].Columns[I].Width                := 6000;
-//      XLS.Sheets[0].Cell[I, 1].FontColor            := clWhite;
-//      XLS.Sheets[0].Cell[I, 1].FontStyle            := XLS.Sheets[0].Cell[I, 1].FontStyle + [xfsBold];
-//      XLS.Sheets[0].Cell[I, 1].FillPatternForeColor := xcBlue;
-//      XLS.Sheets[0].Cell[I, 1].HorizAlignment       := chaCenter;
-//      XLS.Sheets[0].Cell[I, 1].VertAlignment        := cvaCenter;
-//    end;
-//
-//    for J := 0 to lvModule.Items.Count - 1 do
-//    begin
-//      if bSelected and lvModule.Items[J].Selected then
-//        AddToList
-//      else
-//        AddToList;
-//    end;
-//
-//    XLS.Write;
-//  finally
-//    XLS.Free;
-//  end;
+  // XLS := TXLSReadWriteII5.Create(nil);
+  // try
+  // XLS.FileName := strSaveFileName;
+  //
+  // for I := 1 to lvModule.Columns.Count do
+  // begin
+  // for J := 1 to lvModule.Items.Count + 1 do
+  // begin
+  // XLS.Sheets[0].Range.Items[I, J, I, J].BorderOutlineStyle := cbsThin;
+  // XLS.Sheets[0].Range.Items[I, J, I, J].BorderOutlineColor := 0;
+  // end;
+  // end;
+  //
+  // for I := 1 to lvModule.Columns.Count do
+  // begin
+  // Application.ProcessMessages;
+  // XLS.Sheets[0].AsString[I, 1]                  := lvModule.Column[I - 1].Caption;
+  // XLS.Sheets[0].Columns[I].Width                := 6000;
+  // XLS.Sheets[0].Cell[I, 1].FontColor            := clWhite;
+  // XLS.Sheets[0].Cell[I, 1].FontStyle            := XLS.Sheets[0].Cell[I, 1].FontStyle + [xfsBold];
+  // XLS.Sheets[0].Cell[I, 1].FillPatternForeColor := xcBlue;
+  // XLS.Sheets[0].Cell[I, 1].HorizAlignment       := chaCenter;
+  // XLS.Sheets[0].Cell[I, 1].VertAlignment        := cvaCenter;
+  // end;
+  //
+  // for J := 0 to lvModule.Items.Count - 1 do
+  // begin
+  // if bSelected and lvModule.Items[J].Selected then
+  // AddToList
+  // else
+  // AddToList;
+  // end;
+  //
+  // XLS.Write;
+  // finally
+  // XLS.Free;
+  // end;
 end;
 
 procedure TfrmProcessManager.mniSaveToFileClick(Sender: TObject);

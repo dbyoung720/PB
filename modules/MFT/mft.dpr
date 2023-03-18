@@ -9,8 +9,7 @@ uses
   System.Classes,
   Unit1 in 'Unit1.pas' {frmMFT},
   Unit2 in 'Unit2.pas',
-  Unit3 in 'Unit3.pas',
-  uCommon in '..\uCommon.pas';
+  Unit3 in 'Unit3.pas';
 
 {$R *.res}
 

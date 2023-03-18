@@ -12,6 +12,7 @@ object frmOpenCV: TfrmOpenCV
   Font.Name = 'Tahoma'
   Font.Style = []
   Position = poScreenCenter
+  OnActivate = FormActivate
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   TextHeight = 13

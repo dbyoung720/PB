@@ -97,14 +97,16 @@
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
-        <DCC_UnitSearchPath>..\..\src;..\..\vcl\AES;..\..\vcl\JNI;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>..\;..\..\src;..\..\vcl\JNI;..\..\vcl\Scrollbar;..\..\vcl\cnvcl\Source\Crypto;..\..\vcl\cnvcl\Source\Common;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <Debugger_HostApplication>..\..\bin\Win32\PBox.exe</Debugger_HostApplication>
+        <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <DCC_UnitSearchPath>..\..\src;..\..\vcl\AES;..\..\vcl\JNI;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>..\;..\..\src;..\..\vcl\JNI;..\..\vcl\Scrollbar;..\..\vcl\cnvcl\Source\Crypto;..\..\vcl\cnvcl\Source\Common;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <Debugger_HostApplication>..\..\bin\Win64\PBox.exe</Debugger_HostApplication>
+        <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -113,7 +115,7 @@
         <DCC_DebugInformation>0</DCC_DebugInformation>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
-        <DCC_UnitSearchPath>..\..\src;..\..\vcl\JNI;..\;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>..\;..\..\src;..\..\vcl\JNI;..\..\vcl\ScrollBar;..\..\vcl\cnvcl\Source\Crypto;..\..\vcl\cnvcl\Source\Common;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Debugger_HostApplication>..\..\bin\Win32\PBox.exe</Debugger_HostApplication>
@@ -122,7 +124,7 @@
     <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <DCC_UnitSearchPath>..\..\src;..\..\vcl\JNI;..\;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>..\;..\..\src;..\..\vcl\JNI;..\..\vcl\ScrollBar;..\..\vcl\cnvcl\Source\Crypto;..\..\vcl\cnvcl\Source\Common;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <Debugger_HostApplication>..\..\bin\Win64\PBox.exe</Debugger_HostApplication>
         <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
     </PropertyGroup>

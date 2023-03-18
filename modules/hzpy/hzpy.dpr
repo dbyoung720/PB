@@ -7,8 +7,7 @@ library hzpy;
 uses
   System.SysUtils,
   System.Classes,
-  uMainForm in 'uMainForm.pas' {frmHZPY},
-  uCommon in '..\uCommon.pas';
+  uMainForm in 'uMainForm.pas' {frmHZPY};
 
 {$R *.res}
 
